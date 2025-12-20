@@ -1,1 +1,16 @@
-
+[
+    {
+        "question": "Dorian is sending a digitally signed email to Poly. With which key is Dorian signing\nthis message and how is Poly validating it?",
+        "image": "",
+        "options": [
+            "Dorian is signing the message with his public key, and Poly will verify that the message came from Dorian by using Dorian's private key",
+            "Dorian is signing the message with Poly's private key, and Poly will verify that the message came from Dorian by using Dorian's public key",
+            "Dorian is signing the message with his private key, and Poly will verify that the message came from Dorian by using Dorian's public key",
+            "Dorian is signing the message with Poly's public key, and Poly will verify that the message came from Dorian by using Dorian's public key"
+        ],
+        "correct": [
+            2
+        ],
+        "justification": ""
+    }
+]
