@@ -3548,5 +3548,3750 @@
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:51:00"
+  },
+  {
+    "id": 126,
+    "question": "Which of the following USB tools using to copy files from USB devices silently?",
+    "category": "Tools",
+    "image": null,
+    "answers": [
+      {
+        "text": "USBSnoopy",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "USBGrabber",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "USBDumper",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "USBSniffer",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 127,
+    "question": "Identify the encryption algorithm by the description: Symmetric-key block cipher having a classical 12- or 16-round Feistel network with a block size of 64 bits for encryption, which includes large 8 x 32-bit S-boxes based on bent functions, modular addition and subtraction, key-dependent rotation, and XOR operations. This cipher also uses a \"masking\" key and a \"rotation\" key for performing its functions.",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "CAST-128",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DES",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "GOST",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "AES",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 128,
+    "question": "You need to increase the security of keys used for encryption and authentication. For these purposes, you decide to use a technique to enter an initial key to an algorithm that generates an enhanced key resistant to brute-force attacks. Which of the following techniques will you use?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "KDF",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "PKI",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Key reinstallation",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Key stretching",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 129,
+    "question": "John, a black hacker, is trying to do an SMTP enumeration. What useful information can John gather during a Simple Mail Transfer Protocol enumeration?",
+    "category": "Enumeration",
+    "image": null,
+    "answers": [
+      {
+        "text": "He can receive a list of all mail proxy server addresses used by the company.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "He can find information about the daily outgoing message limits before mailboxes are locked.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "He can use the internal command RCPT provides a list of ports open.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "He can use two internal commands VRFY and EXPN, which provide information about valid users, email addresses, etc.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 130,
+    "question": "Identify the correct sequence of steps involved in the vulnerability-management life cycle.",
+    "category": "Vulnerability Management",
+    "image": null,
+    "answers": [
+      {
+        "text": "Vulnerability scan -> Risk assessment -> Identify assets and create a baseline -> Remediation -> Monitor -> Verification.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Remediation -> Monitor -> Verification -> Vulnerability scan -> Risk assessment -> Identify assets and create a baseline.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Vulnerability scan -> Identify assets and create a baseline -> Risk assessment -> Remediation -> Verification -> Monitor.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Identify assets and create a baseline -> Vulnerability scan -> Risk assessment -> Remediation -> Verification -> Monitor.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 131,
+    "question": "Which term from the following describes a set of vulnerabilities that allows spyware to be installed on smartphones with the iOS operating system, allowing those who conducted espionage to track and monitor every action on the device?",
+    "category": "Mobile Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Androrat",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DroidSheep",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Trident",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Zscaler",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 132,
+    "question": "Ivan, a black hat hacker, got the username from the target environment. In conditions of limited time, he decides to use a list of common passwords, which he will pass as an argument to the hacking tool. Which of the following is the method of attack that Ivan uses?",
+    "category": "Password Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Dictionary attack.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Password spraying attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Known plaintext attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Smudge attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 133,
+    "question": "Your boss has instructed you to introduce a hybrid encryption software program into a web application to secure email messages. You are planning to use free software that uses both symmetric-key cryptography and asymmetric-key cryptography for improved speed and secure key exchange. Which of the following meets these requirements?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "GPG",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "S/MIME",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SMTP",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "PGP",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 134,
+    "question": "In which of the following attacks does the attacker receive information from data sources such as voice assistants, multimedia messages, and audio files by using a malicious app to breach speech privacy?",
+    "category": "Mobile Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Spearphone attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Smudge attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DroidDream",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SIM swap scam",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 135,
+    "question": "You need to hide the file in the Linux system. Which of the following characters will you type at the beginning of the filename?",
+    "category": "Linux Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "!",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "_",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "~",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": ".",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 136,
+    "question": "The attacker needs to collect information about his victim Maria. She is an extrovert who often posts a large amount of private information, photos, and location tags of recently visited places on social networks. Which automated tool should an attacker use to gather information to perform other sophisticated attacks?",
+    "category": "Reconnaissance",
+    "image": null,
+    "answers": [
+      {
+        "text": "VisualRoute",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hootsuite",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "HULK",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Ophcrack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 137,
+    "question": "To collect detailed information about services and applications running on identified open ports, nmap can perform version detection. To do this, various probes are used to receive responses from services and applications. Nmap requests probe information from the target host and analyzes the response, comparing it with known responses for various services, applications, and versions. Which of the options will allow you to run this scan?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "-sV",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-sX",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-sF",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-sN",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 138,
+    "question": "Alex was assigned to perform a penetration test against a website using Google dorks. He needs to get results with file extensions. Which operator should Alex use to achieve the desired result?",
+    "category": "Reconnaissance",
+    "image": null,
+    "answers": [
+      {
+        "text": "filetype:",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "define:",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "site:",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "inurl:",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 139,
+    "question": "When scanning with Nmap, you found a firewall. Now you need to determine whether it is a stateful or stateless firewall. Which of the following options is best for you to use?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "-sT",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-sM",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-sA",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-sO",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 140,
+    "question": "The company \"Work Town\" hired a cybersecurity specialist to perform a vulnerability scan by sniffing the traffic on the network to identify the active systems, network services, applications, and vulnerabilities. What type of vulnerability assessment should be performed for \"Work Town\"?",
+    "category": "Vulnerability Assessment",
+    "image": null,
+    "answers": [
+      {
+        "text": "Passive assessment.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Internal assessment.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "External assessment.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Active assessment.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 141,
+    "question": "Which of the following tools is an automated tool that eases his work and performs vulnerability scanning to find hosts, services, and other vulnerabilities in the target server?",
+    "category": "Vulnerability Assessment",
+    "image": null,
+    "answers": [
+      {
+        "text": "Netsparker",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WebCopier Pro",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Infoga",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "NCollector Studio",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 142,
+    "question": "The attacker knows about a vulnerability in a bare-metal cloud server that can enable him to implant malicious backdoors in firmware. Also, the backdoor can persist even if the server is reallocated to new clients or businesses that use it as an laas. What type of cloud attack can be performed by an attacker exploiting the vulnerability discussed in the above scenario?",
+    "category": "Cloud Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Man-in-the-cloud (MITC) attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cloud cryptojacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cloudborne attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Metadata spoofing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 143,
+    "question": "Which of the following is an anonymizer that masks real IP addresses and ensures complete and continuous anonymity for all online activities?",
+    "category": "Anonymity",
+    "image": null,
+    "answers": [
+      {
+        "text": "wolframalpha.com",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "karmadecay.com",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "guardster.com",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "baidu.com",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 144,
+    "question": "What is the name of the technique in which attackers move around the territory in a moving vehicle and use special equipment and software to search for vulnerable and accessible WiFi networks?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Spectrum analysis",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Rogue access point",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wardriving",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wireless sniffing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 145,
+    "question": "Storing cryptographic keys carries a particular risk. In cryptography, there is a mechanism in which a third party stores copies of private keys. By using it, you are can ensure that in the case of a catastrophe, be it a security breach, lost or forgotten keys, natural disaster, or otherwise, your critical keys are safe. What is the name of this mechanism?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "Key encapsulation",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Key schedule",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Key escrow",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Key whitening",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 146,
+    "question": "Enabling SSI directives allows developers to add dynamic code snippets to static HTML pages without using full-fledged client or server languages. However, suppose the server is incorrectly configured (for example, allowing the exec directive) or the data is not strictly verified. In that case, an attacker can change or enter directives to perform malicious actions. What kind of known attack are we talking about?",
+    "category": "Web Application Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Server-side JS injection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Server-side includes injection",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Server-side template injection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "CRLF injection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 147,
+    "question": "John sends an email to his colleague Angela and wants to ensure that the message will not be changed during the delivery process. He creates a checksum of the message and encrypts it using asymmetric cryptography. What key did John use to encrypt the checksum?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "His own private key.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Angela's public key.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Angela's private key",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "His own public key.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 148,
+    "question": "Which of the following is an example of a scareware social engineering attack?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "A pop-up appears to a user stating, \"You have won money! Click here to claim your prize!\"",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "A pop-up appears to a user stating, \"Your computer may have been infected with spyware. Click here to install an anti-spyware tool to resolve this issue.\"",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "A banner appears to a user stating, \"Your order has been delayed. Click here to find out your new delivery date.\"",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "A banner appears to a user stating, \"Your password has expired. Click here to update your password.\"",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 149,
+    "question": "Which of the following SOAP extensions apply security to Web services and maintain the integrity and confidentiality of messages?",
+    "category": "Web Services",
+    "image": null,
+    "answers": [
+      {
+        "text": "WS-Policy",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WS-Security",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WSDL",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WS-BPEL",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 150,
+    "question": "The date and time of the remote host can theoretically be used against some systems to use weak time-based random number generators in other services. Which option in Zenmap will allow you to make ICMP Timestamp ping?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "-PU",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-PN",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-PY",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-PP",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 151,
+    "question": "Alex, a security engineer, needs to determine how much information can be obtained from the firm's public-facing web servers. First of all, he decides to use Netcat to port 80 and receive the following output: HTTP/1.1 200 OK ... Server: Microsoft-IIS/6 ... Which of the following did Alex do?",
+    "category": "Footprinting",
+    "image": null,
+    "answers": [
+      {
+        "text": "Cross-site scripting.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SQL injection.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cross-Site Request Forgery.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Banner grabbing.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 152,
+    "question": "Which of the following is the type of attack that tries to overflow the CAM table?",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "MAC flooding",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Evil twin attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS flood",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DDoS attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 153,
+    "question": "Whois services allow you to get a massive amount of valuable information at the stage of reconnaissance. Depending on the target's location, they receive data from one of the five largest regional Internet registries (RIR). Which of the following RIRs should the Whois service contact if you want to get information about an IP address registered in France?",
+    "category": "Footprinting",
+    "image": null,
+    "answers": [
+      {
+        "text": "LACNIC",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "RIPE NCC",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ARIN",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "APNIC",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 154,
+    "question": "Which of the following is the fastest way to perform content enumeration on a web server using the Gobuster tool?",
+    "category": "Enumeration",
+    "image": null,
+    "answers": [
+      {
+        "text": "Performing content enumeration using the brute-force mode and 10 threads.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Performing content enumeration using the brute-force mode and random file extensions.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Skipping SSL certificate verification.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Performing content enumeration using a wordlist.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 155,
+    "question": "What is the name of a popular tool (or rather, an entire integrated platform written in Java) based on a proxy used to assess the security of web applications and conduct practical testing using a variety of built-in tools?",
+    "category": "Web Application Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Wireshark",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Burp Suite",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Nmap",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "CXSAST",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:35:00"
+  },
+  {
+    "id": 156,
+    "question": "What is the \"wget 192.168.0.10 -q-S\" command used for?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "Flooding the web server with requests to perform a DoS attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Performing content enumeration on the web server to discover hidden folders.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Using wget to perform banner grabbing on the webserver.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Download all the contents of the web page locally.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 157,
+    "question": "Identify the type of SQL injection where attacks extend the results returned by the original query, enabling attackers to run two or more statements if they have the same structure as the original one?",
+    "category": "SQL Injection",
+    "image": null,
+    "answers": [
+      {
+        "text": "Error-based SQL Injection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Union SQL injection",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Blind SQL Injection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Out-of-band SQL Injection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 158,
+    "question": "Adam is a shopaholic, and he constantly surfs on the Internet in search of discounted products. The hacker decided to take advantage of this weakness of Adam and sent a fake email containing a deceptive page link to his social media page with information about a sale. Adam anticipating the benefit didn't notice the malicious link, clicked on them and logged in to that page using his valid credentials. Which of the following tools did the hacker probably use?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Evilginx",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "PyLoris",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "XOIC",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "sixnet-tools",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 159,
+    "question": "Which of the scenarios corresponds to the behaviour of the attacker from the example below: The attacker created and configured multiple domains pointing to the same host to switch quickly between the domains and avoid detection.",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "Use of command-line interface.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Data staging.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Unspecified proxy activities.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS tunnelling.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 160,
+    "question": "The cyber kill chain is essentially a cybersecurity model created by Lockheed Martin that traces the stages of a cyber-attack, identifies vulnerabilities, and helps security teams to stop the attacks at every stage of the chain. At what stage does the intruder transmit the malware via a phishing email or another medium?",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "Installation",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Delivery",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Actions on Objective",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Weaponization",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 161,
+    "question": "The network administrator has received the task to eliminate all unencrypted traffic inside the company's network. During the analysis, it detected unencrypted traffic in port UDP 161. Which of the following protocols uses this port and what actions should the network administrator take to fix this problem?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "SNMP and he should change it to SNMP V2.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "CMIP and enable the encryption for CMIP.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "RPC and the best practice is to disable RPC completely.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SNMP and he should change it to SNMP V3.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 162,
+    "question": "Ivan, an evil hacker, spreads Emotet malware through the malicious script in the organization he attacked. After infecting the device, he used Emote to spread the infection across local networks and beyond to compromise as many machines as possible. He reached this thanks to a tool which is a self-extracting RAR file (containing bypass and service components) to retrieve information related to network resources such as writable share drives. What tool did Ivan use?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "NetPass.exe",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Outlook scraper",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Mail PassView",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Credential enumerator",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 163,
+    "question": "This attack exploits a vulnerability that provides additional routing information in the SOAP header to support asynchronous communication. Also, it further allows the transmission of web-service requests and response messages using different TCP connections. Which of the following attacks matches the description above?",
+    "category": "Web Services",
+    "image": null,
+    "answers": [
+      {
+        "text": "WS-Address spoofing",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Soap Array Attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SOAPAction spoofing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "XML Flooding",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 164,
+    "question": "Identify the type of fault injection attack to loT device by description: During this attack attacker injects faults into the power supply that can be used for remote execution, also causing the skipping of key instructions. Also, an attacker injects faults into the clock network used for delivering a synchronized signal across the chip.",
+    "category": "IoT Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Frequency/voltage tampering",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Temperature attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Optical, EMFI, BBI",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Power/clock/reset glitching",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 165,
+    "question": "Identify Google advanced search operator which helps an attacker gather information about websites that are similar to a specified target URL?",
+    "category": "Reconnaissance",
+    "image": null,
+    "answers": [
+      {
+        "text": "[inurl:]",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "[related:]",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "[link:]",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "[site:]",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 166,
+    "question": "Identify the wrong answer in terms of Range:",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "802.11b",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "802.11a",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "802.16",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "802.11n",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 167,
+    "question": "You need to identify the OS on the attacked machine. You know that TTL: 64 and Window Size: 5840. Which is OS running on the attacked machine?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "Linux OS",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Mac OS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Google's customized Linux",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Windows OS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 168,
+    "question": "Which of the following is the best description of The final phase of every successful hacking - Clearing tracks?",
+    "category": "Hacking Phases",
+    "image": null,
+    "answers": [
+      {
+        "text": "During a cyberattack, a hacker corrupts the event logs on all machines.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "During a cyberattack, a hacker injects a rootkit into a server.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "After a system is breached, a hacker creates a backdoor.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "A hacker gains access to a server through an exploitable vulnerability.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 169,
+    "question": "Ivan, a black hacker, wants to get information about loT cameras and devices used by the attacked company. For these purposes, he will use a tool that collects information about the IoT devices connected to a network, open ports and services, and the attack surface area. Thanks to this tool, Ivan constantly monitors every available server and device on the internet. Which of the following tools did Ivan use to carry out this attack?",
+    "category": "IoT Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Wapiti",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Lacework",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "NeuVector",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Censys",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 170,
+    "question": "You need to protect the company's network from imminent threats. To complete this task, you will enter information about threats into the security devices in a digital format to block and identify inbound and outbound malicious traffic entering the company's network. Which of the following types of threat intelligence will you use?",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "Tactical threat intelligence.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Strategic threat intelligence.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Operational threat intelligence.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Technical threat intelligence.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 171,
+    "question": "During testing, you discovered a vulnerability that allows hackers to gain unauthorized access to API objects and perform actions such as viewing, updating and deleting sensitive data. Which of the following API vulnerabilities have you found?",
+    "category": "Application Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Code Injections.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "No ABAC validation.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Business Logic Flaws.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "RBAC Privilege Escalation.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 172,
+    "question": "Which of the following algorithms is a symmetric key block cipher with a block size of 128 bits representing a 32-round SP-network operating on a block of four 32-bit words?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "SHA-256",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "CAST-128",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Serpent",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "RC4",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 173,
+    "question": "Andrew, an evil hacker, research the website of the company which he wants to attack. During the research, he finds a web page and understands that the company's application is potentially vulnerable to Server-side Includes Injection. Which web-page file type did Andrew find while researching the site?",
+    "category": "Web Application Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": ".cms",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": ".stm",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": ".html",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": ".rss",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 174,
+    "question": "Black-hat hacker Ivan attacked the SCADA system of the industrial water facility. During the exploration process, he discovered that outdated equipment was being used, the human-machine interface (HMI) was directly connected to the Internet and did not have any security tools or authentication mechanism. This allowed Ivan to control the system and influence all processes (including water pressure and temperature). What category does this vulnerability belong to?",
+    "category": "OT Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Lack of Authorization/Authentication and Insecure Defaults.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Code Injection.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Memory Corruption.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Credential Management.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 175,
+    "question": "Identify what the following code is used for: #!/usr/bin/python import socket buffer=[\"A\"] counter 50 while len(buffer) <=100: buffer.apend (\"A\" counter) counter counter+50 commands=[\"HELP\",\"STATS.\",\"RTIME.\",\"LTIME.\",\"SRUN.\",\"TRUN.\", \"GMON.\", \"GDOG.\", \"KSTET.\",\"GTER.\",\" HTER.\",\"LTER.\",\"KSTAN.\"] for command in commands: for buffstring in buffer: print \"Exploiting\" +command+\":\"+str(len(buffstring)) s=socket.socket(socket.AF_INET.socket.SOCK_STREAM) s.connect(('127.0.0.1',9999)) s.recv(50) s.send(command+buffstring) s.close()",
+    "category": "System Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Brute-force",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Heap spraying",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Buffer Overflow",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Buffer over-read",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 176,
+    "question": "The attacker disabled the security controls of NetNTLMv1 by modifying the values of LMCompatibilityLevel, NTLMMinClientSec, and RestrictSending NTLMTraffic. His next step was to extract all the non-network logon tokens from all the active processes to masquerade as a legitimate user to launch further attacks. Which of the following attacks was performed by the attacker?",
+    "category": "Password Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Dictionary attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Rainbow table attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Internal monologue attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 177,
+    "question": "The attacker created a fraudulent email with a malicious attachment and sent it to employees of the target organization. The employee opened this email and clicked on the malicious attachment. Because of this, the malware was downloaded and injected into the software used in the victim's system occurred. Further, the malware propagated itself to other networked systems and finally damaging the industrial automation component. Which of the following attack techniques was used by the attacker?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Spear-phishing attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "HMI-based attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Reconnaissance attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SMishing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 178,
+    "question": "Which of the following is a Kubernetes component that can assign nodes based on the overall resource requirement, data locality, software/hardware/policy restrictions, and internal workload interventions?",
+    "category": "Cloud Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Kube-scheduler",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Kube-controller-manager",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "cloud-controller-manager",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Kube-apiserver",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 179,
+    "question": "Modern security mechanisms can stop various types of DDoS attacks, but if they only check incoming traffic and mostly ignore return traffic, attackers can bypass them under the disguise of a valid TCP session by carrying an SYN, multiple ACK, and one or more RST or FIN packets. What is the name of such an attack?",
+    "category": "DoS Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Spoofed session flood attack.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "UDP flood attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Peer-to-peer attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Ping-of-death attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 180,
+    "question": "Identify the security model by description: In this security model, every user in the network maintains a ring of public keys. Also, a user needs to encrypt a message using the receiver's public key, and only the receiver can decrypt the message using their private key.",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "Web of trust",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Transport Layer Security",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Zero trust security model",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Secure Socket Layer",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 181,
+    "question": "Scammers can query the DNS server to determine whether a specific DNS record is cached, thereby determining your organization's browsing habits. This can disclose sensitive information such as financial institutions visited recently or other sensitive websites that a company might not want to be public knowledge of. Which of the proposed attacks fits this description?",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "DNSSEC zone walking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS zone walking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS cache snooping",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS cache poisoning",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 182,
+    "question": "Evil hacker Ivan knows that his target point and user are compatible with WPA2 and WPA 3 encryption mechanisms. He decided to install a rogue access point with only WPA2 compatibility in the vicinity and forced the victim to go through the WPA2 four-way handshake to connect. As soon as the connection is established, Ivan plans to use automated tools to crack WPA2-encrypted messages. Which of the following attacks does Ivan want to perform?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Downgrade security attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Side-channel attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cache-based attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Timing-based attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 183,
+    "question": "You are investigating to determine the reasons for compromising the computers of your company's employees. You will find out that the machines were infected through sites that employees often visit. When an employee opens a site, there is a redirect from a web page, and malware downloads to the machine. Which of the following attacks did the attacker perform on your company's employees?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Watering hole",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "MarioNet",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Clickjacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS rebinding",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 184,
+    "question": "You want to prevent possible SQLi attacks on your site. To do this, you decide to use a practice whereby only a list of entities such as the data type, range, size, and value, which have been approved for secured access, is accepted. Which of the following practices are you going to adopt?",
+    "category": "Web Application Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Enforce least privileges.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Blacklist validation.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Whitelist validation.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Output encoding.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 185,
+    "question": "Which of the following services is running on port 21 by default?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "Domain Name System",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Border Gateway Protocol",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Service Location Protocol",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "File Transfer Protocol",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:40:00"
+  },
+  {
+    "id": 186,
+    "question": "Identify the Bluetooth vulnerability that can allow an attacker to take over the device, even if the device is not in discoverable mode.",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "BlueBorne",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Bluebugging",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Bluesnarfing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Bluejacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 187,
+    "question": "You need to filter the traffic to see only the packets that are coming from the IP address 192.168.0.10 and going to the destination port 80. Which of the following Wireshark filters will you use?",
+    "category": "Sniffing",
+    "image": "",
+    "answers": [
+      {
+        "text": "ip.src == 192.168.0.10 && tcp.dstport == 80",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ip.dst == 192.168.0.10 && tcp.port == 80",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ip.addr == 192.168.0.10 and port 80",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "src host 192.168.0.10 and dst port 80",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 188,
+    "question": "The attacker created a scenario where he pretended to be a delivery person to gain access to the company's territory. After entering the territory, he gathered sensitive information. Which social engineering technique did the attacker use?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Pretexting",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Tailgating",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Baiting",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Quid pro quo",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 189,
+    "question": "Which of the following describes a technique where an attacker hides information within the noise of an image or audio file?",
+    "category": "Malware",
+    "image": "",
+    "answers": [
+      {
+        "text": "Steganography",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cryptography",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Obfuscation",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Compression",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 190,
+    "question": "Which of the following commands in Nmap allows you to perform a fast scan by scanning fewer ports than the default scan?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "nmap -F",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sF",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -f",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -T4",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 191,
+    "question": "Which of the following type of virus detection method involves the comparison of a file's hash against a database of known malicious hashes?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "Signature-based detection",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Heuristic-based detection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Behavior-based detection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cloud-based detection",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 192,
+    "question": "Identify the type of cloud service that allows consumers to deploy and run arbitrary software, including operating systems and applications.",
+    "category": "Cloud Computing",
+    "image": "",
+    "answers": [
+      {
+        "text": "IaaS",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "PaaS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SaaS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SECaaS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 193,
+    "question": "Which of the following vulnerabilities is exploited when an attacker sends a larger-than-allowed amount of data to a network service to overwrite the adjacent memory?",
+    "category": "System Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "Buffer overflow",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Format string vulnerability",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Race condition",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cross-site scripting",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 194,
+    "question": "Identify the Nmap command that is used to perform a service version detection scan.",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "nmap -sV",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sC",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -O",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 195,
+    "question": "Which of the following tools can be used to perform a network discovery and security auditing on a network?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "Nmap",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wireshark",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Nessus",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Metasploit",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 196,
+    "question": "Identify the attack where an attacker redirects a victim to a malicious website by modifying the local host file or DNS entries.",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Pharming",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Smishing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Vishing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 197,
+    "question": "Which of the following type of virus is designed to infect the Master Boot Record (MBR) of a hard drive?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "Boot sector virus",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "File infector virus",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Macro virus",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Polymorphic virus",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 198,
+    "question": "Identify the type of attack where an attacker attempts to gain unauthorized access to a wireless network by masquerading as a legitimate access point.",
+    "category": "Wireless Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "Evil twin attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wardriving",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Packet sniffing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Denial of service",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 199,
+    "question": "Which of the following is a security control that is used to identify and block unauthorized access to a network by analyzing traffic patterns?",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Intrusion Detection System (IDS)",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Firewall",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Antivirus",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Honeypot",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 200,
+    "question": "Identify the encryption method that uses the same key for both encryption and decryption of data.",
+    "category": "Cryptography",
+    "image": "",
+    "answers": [
+      {
+        "text": "Symmetric encryption",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Asymmetric encryption",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hashing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Digital signature",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 201,
+    "question": "Which of the following commands in Nmap is used to perform an OS detection scan?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "nmap -O",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sV",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -A",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 202,
+    "question": "Identify the type of attack where an attacker captures the data packets on a network to extract sensitive information.",
+    "category": "Sniffing",
+    "image": null,
+    "answers": [
+      {
+        "text": "Sniffing",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Spoofing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hijacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Denial of service",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 203,
+    "question": "Which of the following is a type of authentication that requires the user to provide two or more different factors to gain access to a system?",
+    "category": "System Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "Multi-factor authentication",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Single-factor authentication",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Biometric authentication",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Password-based authentication",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 204,
+    "question": "Identify the attack that involves the use of pre-computed tables to crack the cryptographic hashes.",
+    "category": "Password Attacks",
+    "image": "",
+    "answers": [
+      {
+        "text": "Rainbow table attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Dictionary attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Brute-force attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Birthday attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 205,
+    "question": "Which of the following is a security tool that is used to scan a system for vulnerabilities and provide a report on the findings?",
+    "category": "Vulnerability Analysis",
+    "image": null,
+    "answers": [
+      {
+        "text": "Nessus",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Nmap",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wireshark",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Metasploit",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 206,
+    "question": "Identify the type of attack where an attacker sends a fake ARP response to a victim's machine to associate the attacker's MAC address with the IP address of a legitimate host.",
+    "category": "Network Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "ARP poisoning",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS poisoning",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "IP spoofing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Session hijacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 207,
+    "question": "Which of the following is a type of attack where an attacker intercepts the communication between two parties and masquerades as each of them to gain access to sensitive information?",
+    "category": "Network Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "Man-in-the-middle attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Denial of service attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Replay attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 208,
+    "question": "Identify the encryption method that uses two different keys, one for encryption and one for decryption.",
+    "category": "Cryptography",
+    "image": "",
+    "answers": [
+      {
+        "text": "Asymmetric encryption",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Symmetric encryption",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hashing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Salting",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 209,
+    "question": "Which of the following is a type of attack that involves the use of a large number of compromised devices to perform a DoS attack on a target machine?",
+    "category": "DoS Attacks",
+    "image": "",
+    "answers": [
+      {
+        "text": "Distributed denial of service (DDoS)",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SYN flood",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Smurf attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Ping flood",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 210,
+    "question": "Identify the type of attack where an attacker attempts to gain unauthorized access to a system by guessing the user's password using a list of common passwords.",
+    "category": "Password Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Dictionary attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Brute-force attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Rainbow table attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Birthday attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 211,
+    "question": "Which of the following is a security control that is used to monitor and log all outgoing and incoming traffic on a network?",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Firewall",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Intrusion Detection System (IDS)",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Antivirus",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Vulnerability scanner",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 212,
+    "question": "Identify the type of attack where an attacker redirects a victim to a malicious website by modifying the victim's DNS query response.",
+    "category": "Network Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "DNS poisoning",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ARP poisoning",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "IP spoofing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 213,
+    "question": "Which of the following is a type of attack where an attacker attempts to gain unauthorized access to a system by exploiting a vulnerability in the system's software?",
+    "category": "General",
+    "image": null,
+    "answers": [
+      {
+        "text": "Exploitation",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Vulnerability scanning",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Port scanning",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Fingerprinting",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 214,
+    "question": "Identify the encryption method that uses a mathematical function to convert data into a fixed-length string of characters.",
+    "category": "Cryptography",
+    "image": "",
+    "answers": [
+      {
+        "text": "Hashing",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Symmetric encryption",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Asymmetric encryption",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Digital signature",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 215,
+    "question": "Which of the following is a type of attack where an attacker attempts to gain unauthorized access to a system by impersonating a legitimate user?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Impersonation",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Spoofing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hijacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:45:00"
+  },
+  {
+    "id": 216,
+    "question": "Which of the following standards is most applicable for a major credit card company?",
+    "category": "Regulatory Standards",
+    "image": null,
+    "answers": [
+      {
+        "text": "Sarbanes-Oxley Act",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "HIPAA",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "PCI-DSS",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "FISMA",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 217,
+    "question": "Which of the following parameters is Nmap helps evade IDS or firewalls?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "-A",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-T",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-R",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-r",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 218,
+    "question": "Which of the following is a rootkit that adds additional code or replaces portions of the core operating system to obscure a backdoor on a system?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "User-mode rootkit.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hypervisor-level rootkit.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Kernel-level rootkit.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Application-level Rootkit.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 219,
+    "question": "The boss has instructed you to test the company's network from the attacker's point of view to find out what exploits and vulnerabilities are accessible to the outside world by using devices such as firewalls, routers, and servers. During this process, you should also external assessment estimates the threat of network security attacks external to the organization. What type of vulnerability assessment should you perform?",
+    "category": "Vulnerability Analysis",
+    "image": null,
+    "answers": [
+      {
+        "text": "External assessment",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Passive assessment",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Active Assessments",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Host-based Assessments",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 220,
+    "question": "Which of the following types of attack does the use of Wi-Fi Pineapple belong to run an access point with a legitimate-looking SSID for a nearby business?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Wardriving attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "MAC spoofing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Evil-twin attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 221,
+    "question": "Which antenna is commonly used in communications for a frequency band of 10 MHz to VHF and UHF?",
+    "category": "Wireless Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "Omnidirectional antenna",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Parabolic grid antenna",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Dipole antenna",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Yagi antenna",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 222,
+    "question": "WPS is a rather troubled wireless network security standard. While it can make your life easier, it is also vulnerable to attacks. An attacker within radio range can brute-force the WPS PIN for a vulnerable access point, obtain WEP or WPA passwords, and likely gain access to the Wi-Fi network. However, first, the attacker needs to find a vulnerable point. Which of the following tools is capable of determining WPS-enabled access points?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "wash",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "net view",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "macof",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ntptrace",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 223,
+    "question": "Identify technique for securing the cloud resources according to describe below: This technique assumes by default that a user attempting to access the network is not an authentic entity and verifies every incoming connection before allowing access to the network. When using this technique imposed conditions such that employees can access only the resources required for their role.",
+    "category": "Cloud Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "Container technology",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Zero trust network",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Serverless computing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DMZ",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 224,
+    "question": "Identify the type of SQLi by description: This type of SQLi doesn't show any error message. Its use may be problematic due to as it returns information when the application is given SQL payloads that elicit a true or false response from the server. When the attacker uses this method, an attacker can extract confidential information by observing the responses.",
+    "category": "SQL Injection",
+    "image": null,
+    "answers": [
+      {
+        "text": "Union SQLI",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Error-based SQLi",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Blind SQLi",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Out-of-band SQLi",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 225,
+    "question": "Which of the following frameworks contains a set of the most popular tools that facilitate your tasks of collecting information and data from open sources?",
+    "category": "Reconnaissance",
+    "image": null,
+    "answers": [
+      {
+        "text": "WebSploit Framework",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "BeEF",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "OSINT framework",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Speed Phish Framework",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  [
+  {
+    "id": 216,
+    "question": "Which of the following standards is most applicable for a major credit card company?",
+    "category": "Regulatory Standards",
+    "image": null,
+    "answers": [
+      {
+        "text": "Sarbanes-Oxley Act",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "HIPAA",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "PCI-DSS",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "FISMA",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 217,
+    "question": "Which of the following parameters is Nmap helps evade IDS or firewalls?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "-A",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-T",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-R",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "-r",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 218,
+    "question": "Which of the following is a rootkit that adds additional code or replaces portions of the core operating system to obscure a backdoor on a system?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "User-mode rootkit.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hypervisor-level rootkit.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Kernel-level rootkit.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Application-level Rootkit.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 219,
+    "question": "The boss has instructed you to test the company's network from the attacker's point of view to find out what exploits and vulnerabilities are accessible to the outside world by using devices such as firewalls, routers, and servers. During this process, you should also external assessment estimates the threat of network security attacks external to the organization. What type of vulnerability assessment should you perform?",
+    "category": "Vulnerability Analysis",
+    "image": null,
+    "answers": [
+      {
+        "text": "External assessment",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Passive assessment",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Active Assessments",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Host-based Assessments",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 220,
+    "question": "Which of the following types of attack does the use of Wi-Fi Pineapple belong to run an access point with a legitimate-looking SSID for a nearby business?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Wardriving attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "MAC spoofing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Evil-twin attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 221,
+    "question": "Which antenna is commonly used in communications for a frequency band of 10 MHz to VHF and UHF?",
+    "category": "Wireless Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "Omnidirectional antenna",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Parabolic grid antenna",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Dipole antenna",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Yagi antenna",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 222,
+    "question": "WPS is a rather troubled wireless network security standard. While it can make your life easier, it is also vulnerable to attacks. An attacker within radio range can brute-force the WPS PIN for a vulnerable access point, obtain WEP or WPA passwords, and likely gain access to the Wi-Fi network. However, first, the attacker needs to find a vulnerable point. Which of the following tools is capable of determining WPS-enabled access points?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "wash",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "net view",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "macof",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ntptrace",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 223,
+    "question": "Identify technique for securing the cloud resources according to describe below: This technique assumes by default that a user attempting to access the network is not an authentic entity and verifies every incoming connection before allowing access to the network. When using this technique imposed conditions such that employees can access only the resources required for their role.",
+    "category": "Cloud Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "Container technology",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Zero trust network",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Serverless computing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DMZ",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 224,
+    "question": "Identify the type of SQLi by description: This type of SQLi doesn't show any error message. Its use may be problematic due to as it returns information when the application is given SQL payloads that elicit a true or false response from the server. When the attacker uses this method, an attacker can extract confidential information by observing the responses.",
+    "category": "SQL Injection",
+    "image": null,
+    "answers": [
+      {
+        "text": "Union SQLI",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Error-based SQLi",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Blind SQLi",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Out-of-band SQLi",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
+  },
+  {
+    "id": 225,
+    "question": "Which of the following frameworks contains a set of the most popular tools that facilitate your tasks of collecting information and data from open sources?",
+    "category": "Reconnaissance",
+    "image": null,
+    "answers": [
+      {
+        "text": "WebSploit Framework",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "BeEF",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "OSINT framework",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Speed Phish Framework",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T20:50:00"
   }
+
+
+
+
 ]
