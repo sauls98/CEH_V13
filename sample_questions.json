@@ -9125,7 +9125,7 @@
     "multipleCorrect": false,
     "createdAt": "2025-12-26T21:00:00"
   },
-  [
+
   {
     "id": 381,
     "question": "Which of the following application security testing method of white-box testing, in which only the source code of applications and their components is scanned for determines potential vulnerabilities in their software and architecture?",
