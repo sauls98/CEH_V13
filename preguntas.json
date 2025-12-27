@@ -1,16 +1,1022 @@
 [
-    {
-        "question": "Dorian is sending a digitally signed email to Poly. With which key is Dorian signing\nthis message and how is Poly validating it?",
-        "image": "",
-        "options": [
-            "Dorian is signing the message with his public key, and Poly will verify that the message came from Dorian by using Dorian's private key",
-            "Dorian is signing the message with Poly's private key, and Poly will verify that the message came from Dorian by using Dorian's public key",
-            "Dorian is signing the message with his private key, and Poly will verify that the message came from Dorian by using Dorian's public key",
-            "Dorian is signing the message with Poly's public key, and Poly will verify that the message came from Dorian by using Dorian's public key"
-        ],
-        "correct": [
-            2
-        ],
-        "justification": ""
-    }
+  {
+    "id": 1,
+    "question": "When configuring wireless on the router, your colleague disables SSID broadcast but leaves authentication \"open\" and sets SSID to a 32-character string of random letters and numbers. Which of the following is the correct statement about this scenario?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Disabling SSID broadcast prevents 802.11 beacons from being transmitted from the access point, resulting in a proper setup leveraging \"security through obscurity\".",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "This move will prevent brute-force attacks.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "The hacker still has the opportunity to connect to the network after sniffing the SSID from a successful wireless association.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "The router is still vulnerable to wireless hacking attempts because the SSID broadcast setting can be enabled using a specially crafted packet sent to the access point's hardware address.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 2,
+    "question": "Identify the type of hacker following description: When finding a zero-day vulnerability on a public-facing system, a hacker sends an email to the owner of the public system describing the problem and how the owner can protect themselves from that vulnerability.",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "Gray hat",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Red hat",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "White hat",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Black hat",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 3,
+    "question": "Which of the following tiers in the three-tier application architecture is responsible for moving and processing data between them?",
+    "category": "Architecture",
+    "image": null,
+    "answers": [
+      {
+        "text": "Data tier",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Presentation tier",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Logic tier",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Application Layer",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 4,
+    "question": "While browsing his social media feed, Jacob noticed Jane's photo with the caption: \"Learn more about your friends,\" as well as several personal questions under the post. Jacob responds to the questions. A few days later, Jacob tries to log into his bank account and finds out that it has been compromised. What most likely happened?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Jacob's bank-account login information was brute-forced.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Jacob's password was stolen while he was enthusiastically participating in the survey.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Jacob inadvertently provided the answers to his security questions when responding to Jane's post.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Jacob's computer was infected with a Banker Trojan.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 5,
+    "question": "Which of the following attacks can you perform if you know that the web server handles the \"(../)\" (character string) incorrectly and returns the file listing of a folder structure of the server?",
+    "category": "Web Application Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Denial of service.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Directory traversal.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cross-site scripting.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SQL injection.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 6,
+    "question": "Identify the phase of the APT lifecycle that the hacker is in at the moment according to the scenario: The hacker prepared for an attack and attempted to enter the target network using techniques such as sending spear-phishing emails and exploiting vulnerabilities. Thanks to the successful attack, he deployed malware on the target system to establish an outbound connection.",
+    "category": "APT",
+    "image": null,
+    "answers": [
+      {
+        "text": "Preparation",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cleanup",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Persistence",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Initial intrusion",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 7,
+    "question": "The hacker monitored and intercepted traffic between the victim and a host machine to predict the victim's ISN. The hacker sent spoofed packets with the victim's IP address using the ISN. The victim's connection was interrupted, and the hacker was able to connect. Which attack did the hacker perform?",
+    "category": "Network Security",
+    "image": "",
+    "answers": [
+      {
+        "text": "UDP hijacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "TCP/IP hijacking",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Blind hijacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Forbidden attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 8,
+    "question": "Jonh found information about the emails of two employees in public sources and is preparing a client-side backdoor to send to the employees via email. Which of the stages of the cyber kill chain does John perform?",
+    "category": "Kill Chain",
+    "image": null,
+    "answers": [
+      {
+        "text": "Exploitation",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Command and control",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Weaponization",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Reconnaissance",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 9,
+    "question": "Which of the following is a file on a web server that can be misconfigured and provide sensitive information for a hacker, such as verbose error messages?",
+    "category": "Web Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "idq.dll",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "httpd.conf",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "php.ini",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "administration.config",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 10,
+    "question": "Identify the correct syntax for ICMP scan on a remote computer using hping2.",
+    "category": "Tools",
+    "image": null,
+    "answers": [
+      {
+        "text": "hping2 -1 target.domain.com",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "hping2 target.domain.com",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "hping2 --I target.domain.com",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "hping2 --set-ICMP target.domain.com",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 11,
+    "question": "You need to send an email containing confidential information using PGP. What should you use to communicate correctly using this type of encryption?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "Use your own private key to encrypt the message.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Use your own public key to encrypt the message.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Use your colleague's public key to encrypt the message.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Use your colleague's private key to encrypt the message.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 12,
+    "question": "The attacker is trying to cheat an employee by initiating fake calls while posing as a legitimate employee and sending phishing emails. Which of the following techniques did the attacker use?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Password reuse",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Social engineering",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Insider threat",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Reverse engineering",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 13,
+    "question": "Jennys wants to send a digitally signed message to Molly. What key will Jennys use to sign the message, and how will Molly verify it?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "Jennys will sign the message with her private key, and Molly will verify that the message came from Jennys by using Jenny's public key",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Jennys will sign the message with Molly's private key, and Molly will verify that the message came from Jennys by using Jenny's public key",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Jennys will sign the message with Molly's public key, and Molly will verify that the message came from Jennys by using Jenny's public key",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Jennys will sign the message with her public key, and Molly will verify that the message came from Jenny's by using Jenny's private key.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 14,
+    "question": "You plan to use DNS to perform data exfiltration. You embed malicious data into the DNS protocol packets to successfully inject malware and maintain communication with a C&C server. Which technique would you use?",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "DNS enumeration",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNSSEC zone walking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS cache snooping",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DNS tunnelling",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 15,
+    "question": "Which of the following describes cross-site request forgery?",
+    "category": "Web Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "A request sent by a malicious user from a browser to a server.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "A server makes a request to another server without the user's knowledge.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Modifying the request by the proxy server between the client and the server.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "A browser makes a request to a server without the user's knowledge.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 16,
+    "question": "The attacker installed a scanner on a machine belonging to an employee and scanned several machines on the same network. Which of the following type of vulnerability assessment tools employed the attacker?",
+    "category": "Vulnerability Assessment",
+    "image": null,
+    "answers": [
+      {
+        "text": "Cluster scanner.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Agent-based scanner.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Network-based scanner.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Proxy scanner.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 17,
+    "question": "Which of the following programs is best used for analyzing packets on your wireless network?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Wireshark with Airpcap",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Ethereal with Winpcap",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Airsnort with Airpcap",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wireshark with Winpcap",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 18,
+    "question": "You must discover all the active devices hidden by a restrictive firewall in the IPv4 range in a target network. Which of the following host discovery techniques will you use?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "UDP scan",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "TCP Maimon scan",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ARP ping scan",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ACK flag probe scan",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 19,
+    "question": "You established a connection with your computer using the SMB service and entered your password in plaintext. You need to delete the data about the login and password. Which of the following files do you need to clear?",
+    "category": "System Security",
+    "image": null,
+    "answers": [
+      {
+        "text": ".bash_history",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": ".profile",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": ".xsession-log",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": ".bashrc",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 20,
+    "question": "Identify the footprinting technique: gathering domain information such as domain name, contact details of its owner, expiry date, and creation date.",
+    "category": "Footprinting",
+    "image": null,
+    "answers": [
+      {
+        "text": "VPN footprinting",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Email footprinting",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "VoIP footprinting",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Whois footprinting",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 21,
+    "question": "During an audit, you found a dial-out modem installed. Which of the following security policies should you check to see if dial-out modems are allowed?",
+    "category": "Policies",
+    "image": null,
+    "answers": [
+      {
+        "text": "Acceptable-use policy",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Permissive policy",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Firewall policy",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Remote-access policy",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 22,
+    "question": "Andy called Nick masquerading as customer support. Nick agreed to a meeting. Andy entered the organization territory and gathered sensitive information by searching desks and bins. What is the type of attack technique Andy used?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Shoulder surfing attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Dumpster diving attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Eavesdropping attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Impersonation attack.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 23,
+    "question": "Which of the following services runs directly on TCP port 445?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "Server Message Block (SMB)",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Telnet",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Network File System (NFS)",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Remote procedure call (RPC)",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 24,
+    "question": "The attacker used the following command for scanning: nmap 192.168.1.64/28. Why couldn't the attacker find servers located at 192.168.1.140, 192.168.1.141 and 192.168.1.142?",
+    "category": "Scanning",
+    "image": "",
+    "answers": [
+      {
+        "text": "He needs to add the command \"ip address\" just before the IP address",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "He needs to change the address to 192.168.1.0 with the same mask",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "The network must be dawn and the nmap command and IP address are ok",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "He is scanning from 192.168.1.64 to 192.168.1.78 because of the mask /28 and the servers are not in that range",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 25,
+    "question": "Which of the following Docker components will you use to process API requests and handle containers, volumes, images, and networks?",
+    "category": "Cloud Computing",
+    "image": null,
+    "answers": [
+      {
+        "text": "Docker client",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Docker daemon",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Docker objects",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Docker registries",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 26,
+    "question": "Which of the following tools can work as a proxy, save every request and response, and allow you to test parameters and headers manually?",
+    "category": "Web Application Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Maskgen",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Proxychains",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Burp suite",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "S3Scanner",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 27,
+    "question": "You enter the command: ping-* 6 192.168.120.114. The output shows 6 packets sent. Which of the following flags is hidden under \"*\"?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "n",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "a",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "S",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "t",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 28,
+    "question": "What is the common name of vulnerability disclosure programs opened by companies on HackerOne, Bugcrowd, etc.?",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "Vulnerability hunting program",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Bug bounty program",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Ethical hacking program",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "White-hat hacking program",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 29,
+    "question": "Percival dialled a number claiming to represent technical support and prompted the victim to execute commands and install malicious files. Which social engineering technique did Percival use?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Quid pro quo",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Elicitation",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Diversion theft",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  },
+  {
+    "id": 30,
+    "question": "Employees receive a series of pop-ups with advertisements every time they attempt to go to a website. Which of the following type of malwares infected their systems?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "Trojan",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Adware",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Virus",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Spyware",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:33:00"
+  }
 ]
