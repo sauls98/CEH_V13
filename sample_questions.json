@@ -1018,9 +1018,9 @@
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:33:00"
-  }
-]
-[
+  },
+
+
   {
     "id": 31,
     "question": "You need to identify the OS of the target host. You want to use the Unicornscan tool to do this. As a result of using the tool, you got the TTL value and determined that the target system is running a Windows OS. Which of the following TTL values did you get when using the program?",
