@@ -3059,7 +3059,6 @@
     "multipleCorrect": false,
     "createdAt": "2025-12-26T19:48:00"
   },
-  [
   {
     "id": 91,
     [cite_start]"question": "Johnny decided to gather information for identity theft from the target organization. He wants to redirect the organization's web traffic to a malicious website. After some thought, he plans to perform DNS cache poisoning by exploiting the vulnerabilities in the DNS server software and wants to modify the original IP address of the target website to that of a malicious website. Which of the following techniques does Johnny plan to use? [cite: 2074, 2075, 2076, 2077, 2078, 2079]",
