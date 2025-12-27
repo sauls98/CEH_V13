@@ -1020,3 +1020,1025 @@
     "createdAt": "2025-12-26T19:33:00"
   }
 ]
+[
+  {
+    "id": 31,
+    "question": "You need to identify the OS of the target host. You want to use the Unicornscan tool to do this. As a result of using the tool, you got the TTL value and determined that the target system is running a Windows OS. Which of the following TTL values did you get when using the program?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "128",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "255",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "64",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "138",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 32,
+    "question": "Which of the following is the hacker's first step in conducting a DNS cache poisoning attack on a target organization?",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "The hacker makes a request to the DNS resolver.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "The hacker queries a nameserver using the DNS resolver.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "The hacker uses TCP to poison the DNS resolver.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "The hacker forges a reply from the DNS resolver.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 33,
+    "question": "Which of the following is a type of virus detection method where the anti-virus executes the malicious codes on a virtual machine to simulate CPU and memory activities?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "Integrity checking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Heuristic Analysis",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Code Emulation",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Scanning",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 34,
+    "question": "Identify the attack technique by description: The attacker gains unauthorized access to the target network, remains there without being detected for a long time, and obtains sensitive information without sabotaging the organization.",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "Advanced persistent threat.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Spear-phishing sites.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Diversion theft.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Insider threat.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 35,
+    "question": "Identify the technique by description: During the execution of this technique, an attacker copies the entire website and its content on a local drive to view the complete profile of the site's directory structure, file structure, web pages, images, etc.",
+    "category": "Footprinting",
+    "image": null,
+    "answers": [
+      {
+        "text": "Web cache poisoning",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Website defacement",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Website mirroring",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Session hijacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 36,
+    "question": "John sent a TCP ACK segment to a known closed port on a firewall, but it didn't respond with an RST. What conclusion can John draw about the firewall he scanned?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "It's a non-stateful firewall.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "There is no firewall.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "It's a stateful firewall.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "John can't draw any conclusions based on this information.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 37,
+    "question": "At which of the following stages of the cyber kill chain does data exfiltration occur?",
+    "category": "Hacking Concepts",
+    "image": null,
+    "answers": [
+      {
+        "text": "Installation",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Weaponization",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Actions on objectives",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Command and control",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 38,
+    "question": "Your friend installed an application from a third-party app store. After a while, some of the applications in his smartphone were replaced by malicious applications that appeared legitimate, and he began to receive a lot of advertising spam. Which of the following attacks has your friend been subjected to?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "Clickjacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SMS phishing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "SIM card attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Agent Smith attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 39,
+    "question": "Identify the attack: The victim connected his iPhone to a public computer. After establishing the connection, the victim enabled iTunes Wi-Fi sync. Now the attacker who infected the computer can access the victim's iPhone even after the device is physically disconnected.",
+    "category": "Mobile Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "iOS trustjacking",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Exploiting SS7 vulnerability",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Man-in-the-disk attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "iOS jailbreaking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 40,
+    "question": "Which of the following nmap commands must you use to perform the TCP SYN ping scan?",
+    "category": "Scanning",
+    "image": null,
+    "answers": [
+      {
+        "text": "nmap -sn -PS < target IP address >",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sn -PO < target IP address >",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sn -PP < target IP address >",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "nmap -sn -PA < target IP address >",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 41,
+    "question": "According to the configuration of the DHCP server, only the last 100 IP addresses are available for lease in subnet 10.1.4.0/23. Which of the following IP addresses is in the range of the last 100 addresses?",
+    "category": "Networking",
+    "image": null,
+    "answers": [
+      {
+        "text": "10.1.4.254",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "10.1.155.200",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "10.1.3.156",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "10.1.5.200",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 42,
+    "question": "Which of the following type of malware did the attacker use to bypass your company's application whitelisting by operating in memory without touching the hard drive?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "Phishing malware",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Logic bomb malware",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Fileless malware",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Zero-day malware",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 43,
+    "question": "Viktor plugged in a rogue switch to an unused port in the LAN with a priority lower than any other switch to make it a root bridge and sniff all traffic. What is the attack performed?",
+    "category": "Network Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "DNS poisoning attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ARP spoofing attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "STP attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "VLAN hopping attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 44,
+    "question": "Which of the following is an IOS jailbreaking technique that patches the kernel during the device boot to keep jailbroken after each reboot without assistance?",
+    "category": "Mobile Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Semi-tethered jailbreaking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Semi-untethered jailbreaking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Tethered jailbreaking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Untethered jailbreaking",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 45,
+    "question": "An ethical hacker uses phishing to gain credentials to a system or web application. What phase of ethical hacking methodology is the hacker currently in?",
+    "category": "Hacking Phases",
+    "image": null,
+    "answers": [
+      {
+        "text": "Reconnaissance",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Maintaining access",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Scanning",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Gaining access",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 46,
+    "question": "Which of the following tools will you use for monitoring your organization's website, analyzing traffic, and tracking the geographical location of visitors?",
+    "category": "Footprinting",
+    "image": null,
+    "answers": [
+      {
+        "text": "WAFWOOF",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WebSite-Watcher",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Webroot",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Web-Stat",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 47,
+    "question": "Which of the following online tools allows attackers to gather information related to the model of an loT device and the certifications granted to it?",
+    "category": "Footprinting",
+    "image": null,
+    "answers": [
+      {
+        "text": "search.com",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Google image search",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "FCC ID search",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "EarthExplorer",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 48,
+    "question": "You check the response time of a true/false response and then use another command to determine if the database returns results for user IDs. Which two SQL injection types have you tried?",
+    "category": "SQL Injection",
+    "image": null,
+    "answers": [
+      {
+        "text": "Union-based and error-based",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Out of band and boolean-based",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Time-based and union-based",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Time-based and boolean-based",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 49,
+    "question": "Identify the Bluetooth hacking technique which refers to the theft of information from a wireless device through Bluetooth?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Bluesnarfing",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Bluesmacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Bluebugging",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Bluejacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 50,
+    "question": "Which of the following keys can you share openly using asymmetric cryptography without compromising security?",
+    "category": "Cryptography",
+    "image": null,
+    "answers": [
+      {
+        "text": "User passwords",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Private keys",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Public keys",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Public and private keys",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 51,
+    "question": "Which of the following commands verify a user ID on an SMTP server?",
+    "category": "Enumeration",
+    "image": null,
+    "answers": [
+      {
+        "text": "NOOP",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "VRFY",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "EXPN",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "RCPT",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 52,
+    "question": "Which of the following tools can an attacker use to gather information anonymously from an LDAP service with a Graphical User Interface?",
+    "category": "Enumeration",
+    "image": null,
+    "answers": [
+      {
+        "text": "Zabasearch",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "ike-scan",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "EarthExplorer",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "JXplorer",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 53,
+    "question": "Which type of assessment involves conducting configuration-level checks to identify system configurations, registry settings, and file permissions?",
+    "category": "Vulnerability Analysis",
+    "image": null,
+    "answers": [
+      {
+        "text": "Host-based assessment",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Credentialed assessment",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Distributed assessment",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Database assessment",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 54,
+    "question": "Ivan infiltrated an MSP provider to gain access to cloud services and customer data. Which of the following cloud attacks did Ivan perform?",
+    "category": "Cloud Computing",
+    "image": null,
+    "answers": [
+      {
+        "text": "Cloud hopper attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cloudborne attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Man-in-the-cloud (MITC) attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Cloud cryptojacking",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 55,
+    "question": "The attacker plans to use a URL to obtain a remote feed and alter it to localhost to view local resources on the target server. Which attack is this?",
+    "category": "Web Application Attacks",
+    "image": null,
+    "answers": [
+      {
+        "text": "Website defacement.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Web server misconfiguration.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Web cache poisoning attack.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Server-side request forgery attack.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 56,
+    "question": "An attacker composed a list of vulnerable hosts in advance to ensure fast spreading of a worm. Which scanning technique is this?",
+    "category": "Malware",
+    "image": null,
+    "answers": [
+      {
+        "text": "Topological scanning technique",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Permutation scanning technique",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Hit-list scanning technique",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Subnet scanning technique",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 57,
+    "question": "You try to connect to a known wireless network name but it connects without asking for the password provided by the owner. Which attack occurred?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "Evil twin attack",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Piggybacking attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wireless sniffing",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Wardriving attack",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 58,
+    "question": "Which wireless protocol allows 192-bit minimum-strength security and uses GCMP-256 and ECDSA with a 384-bit elliptic curve?",
+    "category": "Wireless Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "WPA3-Personal",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WPA2-Personal",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WPA3-Enterprise",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "WPA2-Enterprise",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 59,
+    "question": "What is the difference between phishing and pharming attacks?",
+    "category": "Social Engineering",
+    "image": null,
+    "answers": [
+      {
+        "text": "Phishing provides a misspelled/similar URL; Pharming redirects via host file/DNS vulnerabilities.",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Phishing redirects via DNS; Pharming uses misspelled URLs.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Both are technical and identical.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "Pharming uses email; Phishing uses DNS servers.",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  },
+  {
+    "id": 60,
+    "question": "On which of the following ports should the NSTX tool be run for DNS tunnelling?",
+    "category": "Network Security",
+    "image": null,
+    "answers": [
+      {
+        "text": "53",
+        "isCorrect": true,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "23",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "80",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      },
+      {
+        "text": "50",
+        "isCorrect": false,
+        "justification": null,
+        "image": null
+      }
+    ],
+    "multipleCorrect": false,
+    "createdAt": "2025-12-26T19:40:00"
+  }
+]
