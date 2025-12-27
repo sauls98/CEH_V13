@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#007aff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="CEH Quiz">
+  <meta name="description" content="Aplicación para practicar el examen de Certified Ethical Hacker">
+  
+  <title>CEH Quiz Master</title>
+  
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="./icon-512.png">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-primary: #f5f5f7;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #fafafa;
+      --text-primary: #1d1d1f;
+      --text-secondary: #86868b;
+      --text-tertiary: #6e6e73;
+      --accent: #007aff;
+      --accent-hover: #0056b3;
+      --success: #34c759;
+      --error: #ff3b30;
+      --warning: #ff9500;
+      --border: #d2d2d7;
+      --border-light: #e8e8ed;
+      --shadow: rgba(0, 0, 0, 0.04);
+      --shadow-medium: rgba(0, 0, 0, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --safe-top: env(safe-area-inset-top);
+      --safe-bottom: env(safe-area-inset-bottom);
+    }
+    html, body, #root { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior: none;
+      padding-top: var(--safe-top);
+      padding-bottom: var(--safe-bottom);
+    }
+    #root { min-height: 100%; display: flex; flex-direction: column; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 3px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes popIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .fade-in { animation: fadeIn 0.3s ease-out; }
+    .spin { animation: spin 1s linear infinite; }
+    .pop-in { animation: popIn 0.2s ease-out; }
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center; z-index: 1000;
+      padding: 20px;
+    }
+    .modal-content {
+      background: var(--bg-secondary); border-radius: var(--radius-lg);
+      padding: 24px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    .answer-tooltip {
+      position: fixed;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      max-width: 90vw;
+      max-height: 60vh;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      z-index: 999;
+      animation: popIn 0.2s ease-out;
+    }
+    .expand-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--accent);
+      font-size: 12px;
+      margin-left: 8px;
+      cursor: pointer;
+      padding: 4px 8px;
+      background: rgba(0,122,255,0.1);
+      border-radius: 4px;
+    }
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .desktop-only { display: none !important; }
+      .mobile-grid { grid-template-columns: 1fr !important; }
+      .mobile-padding { padding: 16px !important; }
+      .mobile-stack { flex-direction: column !important; }
+      .mobile-full { width: 100% !important; }
+    }
+    /* Install banner */
+    .install-banner {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border-light);
+      padding: 16px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; z-index: 100;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+      padding-bottom: calc(16px + var(--safe-bottom));
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    const Icons = {
+      Plus: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>,
+      Trash: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>,
+      Edit: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>,
+      Image: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>,
+      Download: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>,
+      Upload: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>,
+      Cloud: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>,
+      Play: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>,
+      Check: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>,
+      X: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
+      Clock: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+      FileText: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>,
+      Target: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+      ChevronRight: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>,
+      RefreshCw: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>,
+      Settings: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>,
+      Alert: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>,
+      Eye: () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>,
+      Menu: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
+      Share: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>,
+    };
+
+    const CATEGORIES = ["General", "Footprinting", "Scanning", "Enumeration", "System Hacking", "Malware", "Sniffing", "Social Engineering", "DoS", "Session Hijacking", "Web Servers", "Web Applications", "SQL Injection", "Wireless", "Mobile", "IoT", "Cloud", "Cryptography", "Wireless Security", "Hacking Concepts", "Architecture", "Mobile Security"];
+
+    const Button = ({ children, variant = "primary", size = "md", icon, onClick, disabled, fullWidth, loading }) => {
+      const variants = {
+        primary: { background: 'var(--accent)', color: 'white' },
+        secondary: { background: 'var(--bg-secondary)', color: 'var(--text-primary)', border: '1px solid var(--border)' },
+        success: { background: 'var(--success)', color: 'white' },
+        danger: { background: 'var(--error)', color: 'white' },
+        warning: { background: 'var(--warning)', color: 'white' },
+        ghost: { background: 'transparent', color: 'var(--text-secondary)' },
+        github: { background: '#24292e', color: 'white' }
+      };
+      const sizes = { sm: { padding: '8px 12px', fontSize: '13px' }, md: { padding: '12px 18px', fontSize: '14px' }, lg: { padding: '16px 28px', fontSize: '16px' } };
+      return (
+        <button
+          style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: '500', borderRadius: 'var(--radius-md)', border: 'none', cursor: disabled || loading ? 'not-allowed' : 'pointer', transition: 'all 0.2s', opacity: disabled ? 0.5 : 1, width: fullWidth ? '100%' : 'auto', fontFamily: 'inherit', ...variants[variant], ...sizes[size] }}
+          onClick={onClick}
+          disabled={disabled || loading}
+        >
+          {loading ? <span className="spin" style={{ display: 'inline-flex' }}><Icons.RefreshCw /></span> : icon}
+          {children}
+        </button>
+      );
+    };
+
+    const Card = ({ children, style = {} }) => (
+      <div style={{ background: 'var(--bg-secondary)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: '0 1px 3px var(--shadow)', ...style }}>{children}</div>
+    );
+
+    const Input = ({ label, value, onChange, placeholder, multiline, rows = 3, type = "text" }) => (
+      <div style={{ marginBottom: '16px' }}>
+        {label && <label style={{ display: 'block', marginBottom: '6px', fontSize: '13px', fontWeight: '500', color: 'var(--text-secondary)' }}>{label}</label>}
+        {multiline ? (
+          <textarea value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} rows={rows} style={{ width: '100%', padding: '12px 14px', fontSize: '16px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', resize: 'vertical', outline: 'none' }} />
+        ) : (
+          <input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} style={{ width: '100%', padding: '12px 14px', fontSize: '16px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', outline: 'none' }} />
+        )}
+      </div>
+    );
+
+    const Select = ({ label, value, onChange, options }) => (
+      <div style={{ marginBottom: '16px' }}>
+        {label && <label style={{ display: 'block', marginBottom: '6px', fontSize: '13px', fontWeight: '500', color: 'var(--text-secondary)' }}>{label}</label>}
+        <select value={value} onChange={(e) => onChange(e.target.value)} style={{ width: '100%', padding: '12px 14px', fontSize: '16px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', cursor: 'pointer', outline: 'none' }}>
+          {options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+        </select>
+      </div>
+    );
+
+    const Badge = ({ children, variant = "default" }) => {
+      const variants = { default: { background: 'var(--bg-tertiary)', color: 'var(--text-secondary)' }, primary: { background: 'rgba(0,122,255,0.1)', color: 'var(--accent)' }, success: { background: 'rgba(52,199,89,0.1)', color: 'var(--success)' }, warning: { background: 'rgba(255,149,0,0.1)', color: 'var(--warning)' }, error: { background: 'rgba(255,59,48,0.1)', color: 'var(--error)' } };
+      return <span style={{ display: 'inline-flex', padding: '4px 10px', fontSize: '12px', fontWeight: '500', borderRadius: '20px', ...variants[variant] }}>{children}</span>;
+    };
+
+    const ProgressBar = ({ value, max }) => (
+      <div style={{ width: '100%', height: '6px', background: 'var(--border-light)', borderRadius: '3px', overflow: 'hidden' }}>
+        <div style={{ width: `${(value/max)*100}%`, height: '100%', background: 'var(--accent)', borderRadius: '3px', transition: 'width 0.3s' }} />
+      </div>
+    );
+
+    const Modal = ({ isOpen, onClose, title, children }) => {
+      if (!isOpen) return null;
+      return (
+        <div className="modal-overlay" onClick={onClose}>
+          <div className="modal-content fade-in" onClick={e => e.stopPropagation()}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '600' }}>{title}</h3>
+              <button onClick={onClose} style={{ width: '36px', height: '36px', border: 'none', borderRadius: '50%', background: 'var(--bg-tertiary)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}><Icons.X /></button>
+            </div>
+            {children}
+          </div>
+        </div>
+      );
+    };
+
+    // Tooltip para respuestas largas
+    const AnswerPopover = ({ text, isOpen, onClose, position, letter, isCorrect, justification }) => {
+      if (!isOpen) return null;
+      return (
+        <div className="answer-tooltip pop-in" style={{ top: Math.min(position.top, window.innerHeight - 300), left: Math.max(10, Math.min(position.left, window.innerWidth - 320)) }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', paddingBottom: '12px', borderBottom: '1px solid var(--border-light)' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: isCorrect ? 'var(--success)' : 'var(--accent)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '600', fontSize: '13px' }}>{letter}</div>
+            <span style={{ fontWeight: '600', flex: 1 }}>Opción {letter}</span>
+            {isCorrect && <Badge variant="success">✓ Correcta</Badge>}
+            <button onClick={onClose} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: '4px' }}><Icons.X /></button>
+          </div>
+          <p style={{ fontSize: '15px', lineHeight: '1.6' }}>{text}</p>
+          {justification && (
+            <div style={{ marginTop: '12px', padding: '10px', background: 'rgba(0,122,255,0.05)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--accent)' }}>
+              <p style={{ fontSize: '12px', fontWeight: '600', color: 'var(--accent)', marginBottom: '4px' }}>💡 Justificación</p>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>{justification}</p>
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    const TruncatedAnswer = ({ text, maxLength = 80, letter, isCorrect, justification }) => {
+      const needsTruncate = text.length > maxLength;
+      const displayText = needsTruncate ? text.substring(0, maxLength) + '...' : text;
+      const ref = useRef(null);
+      const [popoverPos, setPopoverPos] = useState({ top: 0, left: 0 });
+      const [showPopover, setShowPopover] = useState(false);
+
+      const handleClick = (e) => {
+        e.stopPropagation();
+        if (needsTruncate) {
+          const rect = ref.current.getBoundingClientRect();
+          setPopoverPos({ top: rect.bottom + 10, left: rect.left });
+          setShowPopover(true);
+        }
+      };
+
+      return (
+        <>
+          <span ref={ref}>{displayText}
+            {needsTruncate && <span onClick={handleClick} className="expand-indicator"><Icons.Eye /> Ver más</span>}
+          </span>
+          {showPopover && (
+            <>
+              <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 998 }} onClick={() => setShowPopover(false)} />
+              <AnswerPopover text={text} isOpen={true} onClose={() => setShowPopover(false)} position={popoverPos} letter={letter} isCorrect={isCorrect} justification={justification} />
+            </>
+          )}
+        </>
+      );
+    };
+
+    // Header móvil
+    const Header = ({ activeTab, setActiveTab, onOpenSettings }) => (
+      <header style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border-light)', padding: '0 16px', position: 'sticky', top: 0, zIndex: 100 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '56px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div style={{ width: '32px', height: '32px', background: 'linear-gradient(135deg, var(--accent) 0%, #5856d6 100%)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '16px' }}>🛡️</div>
+            <span style={{ fontSize: '17px', fontWeight: '600' }}>CEH Quiz</span>
+          </div>
+          <div style={{ display: 'flex', gap: '4px', background: 'var(--bg-tertiary)', padding: '3px', borderRadius: 'var(--radius-sm)' }}>
+            {[{ id: 'editor', icon: <Icons.FileText /> }, { id: 'quiz', icon: <Icons.Target /> }].map(tab => (
+              <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{ padding: '8px 16px', border: 'none', borderRadius: '6px', cursor: 'pointer', background: activeTab === tab.id ? 'var(--bg-secondary)' : 'transparent', color: activeTab === tab.id ? 'var(--accent)' : 'var(--text-secondary)', boxShadow: activeTab === tab.id ? '0 1px 3px var(--shadow)' : 'none', fontFamily: 'inherit', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{tab.icon}</button>
+            ))}
+          </div>
+          <button onClick={onOpenSettings} style={{ width: '36px', height: '36px', border: 'none', borderRadius: '8px', background: 'var(--bg-tertiary)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}><Icons.Settings /></button>
+        </div>
+      </header>
+    );
+
+    const AnswerItem = ({ answer, index, onChange, onRemove }) => {
+      const letter = String.fromCharCode(65 + index);
+      return (
+        <div className="fade-in" style={{ display: 'flex', gap: '10px', padding: '12px', background: answer.isCorrect ? 'rgba(52,199,89,0.05)' : 'var(--bg-tertiary)', borderRadius: 'var(--radius-md)', border: answer.isCorrect ? '1px solid rgba(52,199,89,0.3)' : '1px solid var(--border-light)', marginBottom: '10px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '6px' }}>
+            <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: answer.isCorrect ? 'var(--success)' : 'var(--border)', color: answer.isCorrect ? 'white' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '600', fontSize: '13px' }}>{letter}</div>
+            <button onClick={() => onChange({ ...answer, isCorrect: !answer.isCorrect })} style={{ width: '22px', height: '22px', borderRadius: '6px', border: answer.isCorrect ? 'none' : '2px solid var(--border)', background: answer.isCorrect ? 'var(--success)' : 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>{answer.isCorrect && <Icons.Check />}</button>
+          </div>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <textarea value={answer.text} onChange={(e) => onChange({ ...answer, text: e.target.value })} placeholder={`Respuesta ${letter}...`} rows={2} style={{ width: '100%', padding: '10px', fontSize: '15px', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-sm)', background: 'white', marginBottom: '6px', fontFamily: 'inherit', outline: 'none', resize: 'none' }} />
+            <input value={answer.justification || ''} onChange={(e) => onChange({ ...answer, justification: e.target.value })} placeholder="Justificación..." style={{ width: '100%', padding: '8px 10px', fontSize: '13px', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-sm)', background: 'white', fontFamily: 'inherit', outline: 'none' }} />
+          </div>
+          <button onClick={onRemove} style={{ width: '32px', height: '32px', border: 'none', borderRadius: 'var(--radius-sm)', background: 'rgba(255,59,48,0.1)', color: 'var(--error)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', alignSelf: 'flex-start' }}><Icons.Trash /></button>
+        </div>
+      );
+    };
+
+    const QuestionCard = ({ question, index, onEdit, onDelete }) => (
+      <div style={{ display: 'flex', alignItems: 'center', padding: '14px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', marginBottom: '8px' }}>
+        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'var(--bg-tertiary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '600', color: 'var(--text-secondary)', marginRight: '12px', fontSize: '13px', flexShrink: 0 }}>{index + 1}</div>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: '14px', fontWeight: '500', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: '4px' }}>{question.question}</div>
+          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+            <Badge variant="primary">{question.category}</Badge>
+            {question.multipleCorrect && <Badge variant="warning">Multi</Badge>}
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: '6px', marginLeft: '8px' }}>
+          <button onClick={() => onEdit(index)} style={{ width: '34px', height: '34px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'white', color: 'var(--text-secondary)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icons.Edit /></button>
+          <button onClick={() => onDelete(index)} style={{ width: '34px', height: '34px', border: 'none', borderRadius: 'var(--radius-sm)', background: 'rgba(255,59,48,0.1)', color: 'var(--error)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icons.Trash /></button>
+        </div>
+      </div>
+    );
+
+    const EditorTab = ({ questions, setQuestions, githubUrl, onSync, syncing }) => {
+      const [questionText, setQuestionText] = useState('');
+      const [category, setCategory] = useState('General');
+      const [answers, setAnswers] = useState([{ text: '', isCorrect: false, justification: '' }, { text: '', isCorrect: false, justification: '' }, { text: '', isCorrect: false, justification: '' }, { text: '', isCorrect: false, justification: '' }]);
+      const [editingIndex, setEditingIndex] = useState(null);
+      const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+      const [showForm, setShowForm] = useState(false);
+
+      const clearForm = () => { setQuestionText(''); setCategory('General'); setAnswers([{ text: '', isCorrect: false, justification: '' }, { text: '', isCorrect: false, justification: '' }, { text: '', isCorrect: false, justification: '' }, { text: '', isCorrect: false, justification: '' }]); setEditingIndex(null); };
+
+      const saveQuestion = () => {
+        if (!questionText.trim()) { alert('El enunciado es obligatorio'); return; }
+        const validAnswers = answers.filter(a => a.text.trim());
+        if (validAnswers.length < 2) { alert('Debe haber al menos 2 respuestas'); return; }
+        if (!validAnswers.some(a => a.isCorrect)) { alert('Debe marcar al menos una respuesta correcta'); return; }
+        const newQuestion = { id: Date.now(), question: questionText, category, answers: validAnswers, multipleCorrect: validAnswers.filter(a => a.isCorrect).length > 1, createdAt: new Date().toISOString() };
+        if (editingIndex !== null) { const updated = [...questions]; updated[editingIndex] = newQuestion; setQuestions(updated); } else { setQuestions([...questions, newQuestion]); }
+        clearForm();
+        setShowForm(false);
+      };
+
+      const editQuestion = (index) => {
+        const q = questions[index];
+        setQuestionText(q.question); setCategory(q.category || 'General');
+        setAnswers([...q.answers, ...Array(4 - q.answers.length).fill({ text: '', isCorrect: false, justification: '' })].slice(0, Math.max(4, q.answers.length)));
+        setEditingIndex(index);
+        setShowForm(true);
+      };
+
+      const deleteQuestion = (index) => { if (confirm('¿Eliminar?')) setQuestions(questions.filter((_, i) => i !== index)); };
+
+      const exportJSON = () => {
+        if (!questions.length) { alert('No hay preguntas'); return; }
+        const blob = new Blob([JSON.stringify(questions, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url; a.download = `ceh_questions.json`; a.click();
+      };
+
+      const importJSON = () => {
+        const input = document.createElement('input'); input.type = 'file'; input.accept = '.json';
+        input.onchange = (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (ev) => { try { const imported = JSON.parse(ev.target.result); setQuestions([...questions, ...imported]); alert(`${imported.length} preguntas importadas`); } catch(err) { alert('Error: ' + err.message); } };
+            reader.readAsText(file);
+          }
+        };
+        input.click();
+      };
+
+      return (
+        <div style={{ flex: 1, padding: '16px', overflowY: 'auto' }}>
+          {/* Action buttons */}
+          <div style={{ display: 'flex', gap: '8px', marginBottom: '16px', flexWrap: 'wrap' }}>
+            <Button variant="success" size="sm" icon={<Icons.Plus />} onClick={() => { clearForm(); setShowForm(true); }}>Nueva</Button>
+            <Button variant="secondary" size="sm" icon={<Icons.Upload />} onClick={importJSON}>Importar</Button>
+            <Button variant="primary" size="sm" icon={<Icons.Download />} onClick={exportJSON}>Exportar</Button>
+            <Button variant="github" size="sm" icon={<Icons.Cloud />} onClick={onSync} loading={syncing} disabled={!githubUrl}>Sync</Button>
+            <Button variant="danger" size="sm" icon={<Icons.Trash />} onClick={() => setShowDeleteConfirm(true)} disabled={!questions.length}>Borrar</Button>
+          </div>
+
+          {!githubUrl && <div style={{ padding: '10px 14px', background: 'rgba(255,149,0,0.1)', borderRadius: 'var(--radius-sm)', marginBottom: '16px', fontSize: '13px', color: 'var(--warning)', display: 'flex', alignItems: 'center', gap: '8px' }}><Icons.Alert />Configura GitHub en ⚙️</div>}
+
+          {/* Stats */}
+          <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', marginBottom: '16px', textAlign: 'center', border: '1px solid var(--border-light)' }}>
+            <div style={{ fontSize: '32px', fontWeight: '700', color: 'var(--accent)' }}>{questions.length}</div>
+            <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Preguntas en el banco</div>
+          </div>
+
+          {/* Questions list */}
+          <div>
+            {questions.length === 0 ? (
+              <div style={{ textAlign: 'center', padding: '40px 20px', color: 'var(--text-secondary)' }}>
+                <div style={{ fontSize: '48px', marginBottom: '12px' }}>📝</div>
+                <p>No hay preguntas</p>
+                <p style={{ fontSize: '13px' }}>Crea una o sincroniza desde GitHub</p>
+              </div>
+            ) : questions.map((q, i) => <QuestionCard key={q.id || i} question={q} index={i} onEdit={editQuestion} onDelete={deleteQuestion} />)}
+          </div>
+
+          {/* Form Modal */}
+          <Modal isOpen={showForm} onClose={() => setShowForm(false)} title={editingIndex !== null ? 'Editar Pregunta' : 'Nueva Pregunta'}>
+            <Input label="Enunciado" value={questionText} onChange={setQuestionText} placeholder="Escribe la pregunta..." multiline rows={3} />
+            <Select label="Categoría" value={category} onChange={setCategory} options={CATEGORIES} />
+            <div style={{ marginBottom: '16px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                <label style={{ fontSize: '13px', fontWeight: '500', color: 'var(--text-secondary)' }}>Respuestas</label>
+                <Button variant="ghost" size="sm" icon={<Icons.Plus />} onClick={() => setAnswers([...answers, { text: '', isCorrect: false, justification: '' }])}>Añadir</Button>
+              </div>
+              {answers.map((answer, index) => <AnswerItem key={index} answer={answer} index={index} onChange={(updated) => { const newAnswers = [...answers]; newAnswers[index] = updated; setAnswers(newAnswers); }} onRemove={() => { if (answers.length > 2) setAnswers(answers.filter((_, i) => i !== index)); }} />)}
+            </div>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <Button variant="secondary" fullWidth onClick={() => setShowForm(false)}>Cancelar</Button>
+              <Button variant="success" fullWidth icon={<Icons.Check />} onClick={saveQuestion}>Guardar</Button>
+            </div>
+          </Modal>
+
+          {/* Delete confirm */}
+          <Modal isOpen={showDeleteConfirm} onClose={() => setShowDeleteConfirm(false)} title="Eliminar todo">
+            <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+              <div style={{ fontSize: '40px', marginBottom: '12px' }}>⚠️</div>
+              <p>¿Eliminar <strong>{questions.length}</strong> preguntas?</p>
+            </div>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <Button variant="secondary" fullWidth onClick={() => setShowDeleteConfirm(false)}>Cancelar</Button>
+              <Button variant="danger" fullWidth onClick={() => { setQuestions([]); setShowDeleteConfirm(false); }}>Eliminar</Button>
+            </div>
+          </Modal>
+        </div>
+      );
+    };
+
+    const QuizSetup = ({ questions, onStart }) => {
+      const [numQuestions, setNumQuestions] = useState(10);
+      const [category, setCategory] = useState('Todas');
+      const availableQuestions = category === 'Todas' ? questions : questions.filter(q => q.category === category);
+
+      return (
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+          <Card style={{ padding: '32px', textAlign: 'center', maxWidth: '400px', width: '100%' }}>
+            <div style={{ width: '70px', height: '70px', background: 'linear-gradient(135deg, var(--accent) 0%, #5856d6 100%)', borderRadius: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontSize: '32px' }}>🎯</div>
+            <h1 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '8px' }}>Iniciar Quiz</h1>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', fontSize: '14px' }}>Practica para tu examen CEH</p>
+            <div style={{ textAlign: 'left' }}>
+              <Input label="Número de preguntas" value={numQuestions} onChange={(v) => setNumQuestions(Math.max(1, Math.min(availableQuestions.length, parseInt(v) || 1)))} type="number" />
+              <Select label="Categoría" value={category} onChange={setCategory} options={['Todas', ...CATEGORIES]} />
+            </div>
+            <div style={{ padding: '14px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius-md)', marginBottom: '20px' }}>
+              <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>📚 {availableQuestions.length} disponibles</span>
+            </div>
+            <Button variant="primary" size="lg" fullWidth icon={<Icons.Play />} onClick={() => onStart(Math.min(numQuestions, availableQuestions.length), category)} disabled={availableQuestions.length === 0}>Comenzar</Button>
+          </Card>
+        </div>
+      );
+    };
+
+    const QuizActive = ({ questions, onFinish }) => {
+      const [currentIndex, setCurrentIndex] = useState(0);
+      const [selectedAnswers, setSelectedAnswers] = useState([]);
+      const [userAnswers, setUserAnswers] = useState([]);
+      const [showAnswer, setShowAnswer] = useState(false);
+      const [totalTime, setTotalTime] = useState(0);
+      const [questionTime, setQuestionTime] = useState(0);
+      const [questionTimes, setQuestionTimes] = useState([]);
+      const [shuffledQuestions, setShuffledQuestions] = useState([]);
+
+      useEffect(() => {
+        const shuffled = [...questions].sort(() => Math.random() - 0.5).map(q => ({ ...q, answers: [...q.answers].sort(() => Math.random() - 0.5) }));
+        setShuffledQuestions(shuffled);
+        setUserAnswers(new Array(questions.length).fill(null));
+      }, [questions]);
+
+      useEffect(() => {
+        const timer = setInterval(() => { setTotalTime(t => t + 1); setQuestionTime(t => t + 1); }, 1000);
+        return () => clearInterval(timer);
+      }, []);
+
+      const formatTime = (s) => { const m = Math.floor(s / 60); return `${m.toString().padStart(2,'0')}:${(s % 60).toString().padStart(2,'0')}`; };
+
+      const currentQuestion = shuffledQuestions[currentIndex];
+      const toggleAnswer = (text) => { if (showAnswer) return; setSelectedAnswers(prev => prev.includes(text) ? prev.filter(a => a !== text) : [...prev, text]); };
+
+      const handleShowAnswer = () => {
+        setShowAnswer(true);
+        const updated = [...userAnswers]; updated[currentIndex] = selectedAnswers; setUserAnswers(updated);
+        setQuestionTimes([...questionTimes, questionTime]);
+      };
+
+      const handleNext = () => {
+        if (!showAnswer) { const updated = [...userAnswers]; updated[currentIndex] = selectedAnswers; setUserAnswers(updated); setQuestionTimes([...questionTimes, questionTime]); }
+        if (currentIndex + 1 >= shuffledQuestions.length) { onFinish({ questions: shuffledQuestions, userAnswers: showAnswer ? userAnswers : [...userAnswers.slice(0, currentIndex), selectedAnswers], totalTime, questionTimes: showAnswer ? questionTimes : [...questionTimes, questionTime] }); }
+        else { setCurrentIndex(currentIndex + 1); setSelectedAnswers([]); setShowAnswer(false); setQuestionTime(0); }
+      };
+
+      if (!currentQuestion) return null;
+
+      return (
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+          {/* Header */}
+          <div style={{ padding: '12px 16px', background: 'var(--bg-secondary)', borderBottom: '1px solid var(--border-light)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', background: 'var(--bg-tertiary)', borderRadius: '6px', fontSize: '13px' }}><Icons.Clock />{formatTime(totalTime)}</div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '6px 12px', background: 'rgba(255,149,0,0.1)', borderRadius: '6px', fontSize: '13px', color: 'var(--warning)' }}>{formatTime(questionTime)}</div>
+              </div>
+              <span style={{ fontWeight: '600', fontSize: '14px' }}>{currentIndex + 1}/{shuffledQuestions.length}</span>
+            </div>
+            <ProgressBar value={currentIndex + 1} max={shuffledQuestions.length} />
+          </div>
+
+          {/* Content */}
+          <div style={{ flex: 1, overflow: 'auto', padding: '16px' }}>
+            <div style={{ marginBottom: '12px' }}>
+              <Badge variant="primary">{currentQuestion.category}</Badge>
+              {currentQuestion.multipleCorrect && <Badge variant="warning" style={{ marginLeft: '6px' }}>Multi</Badge>}
+            </div>
+            <h2 style={{ fontSize: '16px', fontWeight: '500', lineHeight: '1.5', marginBottom: '20px' }}>{currentQuestion.question}</h2>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              {currentQuestion.answers.map((answer, index) => {
+                const letter = String.fromCharCode(65 + index);
+                const isSelected = selectedAnswers.includes(answer.text);
+                const isCorrect = answer.isCorrect;
+                let bgColor = isSelected ? 'rgba(0,122,255,0.08)' : 'var(--bg-tertiary)';
+                let borderColor = isSelected ? 'var(--accent)' : 'var(--border-light)';
+                if (showAnswer) { if (isCorrect) { bgColor = 'rgba(52,199,89,0.1)'; borderColor = 'var(--success)'; } else if (isSelected && !isCorrect) { bgColor = 'rgba(255,59,48,0.1)'; borderColor = 'var(--error)'; } }
+                return (
+                  <div key={index} onClick={() => toggleAnswer(answer.text)} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '14px', background: bgColor, border: `2px solid ${borderColor}`, borderRadius: 'var(--radius-md)', cursor: showAnswer ? 'default' : 'pointer' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: showAnswer && isCorrect ? 'var(--success)' : (isSelected ? 'var(--accent)' : 'var(--border)'), color: (isSelected || (showAnswer && isCorrect)) ? 'white' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '600', fontSize: '13px', flexShrink: 0 }}>{showAnswer && isCorrect ? <Icons.Check /> : letter}</div>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontSize: '14px', lineHeight: '1.5' }}>
+                        <TruncatedAnswer text={answer.text} maxLength={100} letter={letter} isCorrect={isCorrect} justification={answer.justification} />
+                      </p>
+                      {showAnswer && answer.justification && <p style={{ marginTop: '8px', fontSize: '12px', color: 'var(--text-secondary)', fontStyle: 'italic', padding: '8px', background: 'rgba(0,122,255,0.05)', borderRadius: '6px', borderLeft: '2px solid var(--accent)' }}>💡 {answer.justification}</p>}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Bottom actions */}
+          <div style={{ padding: '16px', background: 'var(--bg-secondary)', borderTop: '1px solid var(--border-light)', display: 'flex', gap: '10px' }}>
+            <Button variant="warning" fullWidth onClick={handleShowAnswer} disabled={showAnswer || !selectedAnswers.length}>Ver Respuesta</Button>
+            <Button variant="primary" fullWidth onClick={handleNext}>{currentIndex + 1 >= shuffledQuestions.length ? 'Resultados' : 'Siguiente'}</Button>
+          </div>
+        </div>
+      );
+    };
+
+    const QuizResults = ({ results, onRestart }) => {
+      const { questions, userAnswers, totalTime, questionTimes } = results;
+      let correct = 0;
+      questions.forEach((q, i) => { const ca = new Set(q.answers.filter(a => a.isCorrect).map(a => a.text)); const ua = new Set(userAnswers[i] || []); if (ca.size === ua.size && [...ca].every(a => ua.has(a))) correct++; });
+      const pct = Math.round((correct / questions.length) * 100);
+      const formatTime = (s) => `${Math.floor(s / 60).toString().padStart(2,'0')}:${(s % 60).toString().padStart(2,'0')}`;
+      const grade = pct >= 80 ? { emoji: '🎉', text: '¡Excelente!', color: 'var(--success)' } : pct >= 60 ? { emoji: '👍', text: '¡Bien!', color: 'var(--warning)' } : { emoji: '📚', text: 'A practicar', color: 'var(--error)' };
+
+      return (
+        <div style={{ flex: 1, overflow: 'auto', padding: '20px' }}>
+          <Card className="fade-in" style={{ padding: '32px', textAlign: 'center', marginBottom: '20px' }}>
+            <div style={{ fontSize: '56px', marginBottom: '12px' }}>{grade.emoji}</div>
+            <h1 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '8px' }}>{grade.text}</h1>
+            <div style={{ fontSize: '48px', fontWeight: '700', color: grade.color, marginBottom: '16px' }}>{pct}%</div>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>{correct} de {questions.length} correctas</p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '12px', marginBottom: '24px' }}>
+              {[{ icon: '⏱️', label: 'Tiempo', value: formatTime(totalTime) }, { icon: '✅', label: 'Correctas', value: correct }, { icon: '❌', label: 'Incorrectas', value: questions.length - correct }, { icon: '📊', label: 'Promedio', value: formatTime(Math.round(questionTimes.reduce((a,b)=>a+b,0)/questionTimes.length||0)) }].map((s, i) => (
+                <div key={i} style={{ padding: '14px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius-sm)' }}>
+                  <div style={{ fontSize: '20px', marginBottom: '4px' }}>{s.icon}</div>
+                  <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>{s.label}</div>
+                  <div style={{ fontSize: '18px', fontWeight: '600' }}>{s.value}</div>
+                </div>
+              ))}
+            </div>
+            <Button variant="success" size="lg" fullWidth icon={<Icons.RefreshCw />} onClick={onRestart}>Nuevo Quiz</Button>
+          </Card>
+        </div>
+      );
+    };
+
+    const QuizTab = ({ questions }) => {
+      const [state, setState] = useState('setup');
+      const [quizQ, setQuizQ] = useState([]);
+      const [results, setResults] = useState(null);
+
+      const start = (n, cat) => {
+        const avail = cat === 'Todas' ? questions : questions.filter(q => q.category === cat);
+        setQuizQ([...avail].sort(() => Math.random() - 0.5).slice(0, n));
+        setState('active');
+      };
+
+      if (state === 'setup') return <QuizSetup questions={questions} onStart={start} />;
+      if (state === 'active') return <QuizActive questions={quizQ} onFinish={(r) => { setResults(r); setState('results'); }} />;
+      return <QuizResults results={results} onRestart={() => setState('setup')} />;
+    };
+
+    const SettingsModal = ({ isOpen, onClose, githubUrl, setGithubUrl }) => {
+      const [url, setUrl] = useState(githubUrl);
+      useEffect(() => setUrl(githubUrl), [githubUrl, isOpen]);
+      return (
+        <Modal isOpen={isOpen} onClose={onClose} title="⚙️ Configuración">
+          <Input label="URL del repositorio GitHub" value={url} onChange={setUrl} placeholder="https://github.com/usuario/repo" />
+          <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '-10px', marginBottom: '20px' }}>El archivo debe llamarse <code style={{ background: 'var(--bg-tertiary)', padding: '2px 6px', borderRadius: '4px' }}>sample_questions.json</code></p>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <Button variant="secondary" fullWidth onClick={onClose}>Cancelar</Button>
+            <Button variant="primary" fullWidth onClick={() => { setGithubUrl(url); onClose(); }}>Guardar</Button>
+          </div>
+        </Modal>
+      );
+    };
+
+    // Install Banner Component
+    const InstallBanner = ({ onInstall, onDismiss }) => (
+      <div className="install-banner fade-in">
+        <div>
+          <div style={{ fontWeight: '600', fontSize: '14px' }}>Instalar App</div>
+          <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>Acceso rápido desde tu pantalla</div>
+        </div>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <Button variant="ghost" size="sm" onClick={onDismiss}>No</Button>
+          <Button variant="primary" size="sm" onClick={onInstall}>Instalar</Button>
+        </div>
+      </div>
+    );
+
+    const App = () => {
+      const [activeTab, setActiveTab] = useState('quiz');
+      const [questions, setQuestions] = useState([]);
+      const [githubUrl, setGithubUrl] = useState('');
+      const [showSettings, setShowSettings] = useState(false);
+      const [syncing, setSyncing] = useState(false);
+      const [installPrompt, setInstallPrompt] = useState(null);
+      const [showInstall, setShowInstall] = useState(false);
+
+      useEffect(() => {
+        const saved = localStorage.getItem('ceh_questions');
+        if (saved) try { setQuestions(JSON.parse(saved)); } catch {}
+        const savedUrl = localStorage.getItem('ceh_github_url');
+        if (savedUrl) setGithubUrl(savedUrl);
+
+        // PWA install prompt
+        window.addEventListener('beforeinstallprompt', (e) => {
+          e.preventDefault();
+          setInstallPrompt(e);
+          if (!localStorage.getItem('pwa_dismissed')) setShowInstall(true);
+        });
+      }, []);
+
+      useEffect(() => { localStorage.setItem('ceh_questions', JSON.stringify(questions)); }, [questions]);
+      useEffect(() => { localStorage.setItem('ceh_github_url', githubUrl); }, [githubUrl]);
+
+      const handleInstall = async () => {
+        if (installPrompt) {
+          installPrompt.prompt();
+          const result = await installPrompt.userChoice;
+          if (result.outcome === 'accepted') setShowInstall(false);
+        }
+      };
+
+      const syncFromGitHub = async () => {
+        if (!githubUrl) { alert('Configura GitHub primero'); return; }
+        setSyncing(true);
+        try {
+          let rawUrl = githubUrl;
+          if (githubUrl.includes('github.com')) {
+            const match = githubUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
+            if (match) { const [, user, repo] = match; rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/main/sample_questions.json`; }
+          }
+          const response = await fetch(rawUrl);
+          if (!response.ok) throw new Error(`Error ${response.status}`);
+          const remote = await response.json();
+          const merged = [...questions];
+          let added = 0, updated = 0;
+          remote.forEach(rq => {
+            const idx = merged.findIndex(q => q.id === rq.id || q.question === rq.question);
+            if (idx >= 0) { merged[idx] = rq; updated++; } else { merged.push(rq); added++; }
+          });
+          setQuestions(merged);
+          alert(`✅ Sincronizado\n📥 ${added} nuevas\n🔄 ${updated} actualizadas`);
+        } catch (err) { alert(`❌ Error: ${err.message}`); }
+        finally { setSyncing(false); }
+      };
+
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100%', background: 'var(--bg-primary)' }}>
+          <Header activeTab={activeTab} setActiveTab={setActiveTab} onOpenSettings={() => setShowSettings(true)} />
+          {activeTab === 'editor' ? <EditorTab questions={questions} setQuestions={setQuestions} githubUrl={githubUrl} onSync={syncFromGitHub} syncing={syncing} /> : <QuizTab questions={questions} />}
+          <SettingsModal isOpen={showSettings} onClose={() => setShowSettings(false)} githubUrl={githubUrl} setGithubUrl={setGithubUrl} />
+          {showInstall && <InstallBanner onInstall={handleInstall} onDismiss={() => { setShowInstall(false); localStorage.setItem('pwa_dismissed', '1'); }} />}
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+  
+  <script>
+    // Registrar Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('SW registrado:', reg.scope))
+          .catch(err => console.log('Error SW:', err));
+      });
+    }
+  </script>
+</body>
+</html>
