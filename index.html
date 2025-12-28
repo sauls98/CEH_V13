@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#007aff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <title>CEH Quiz Master</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg-primary: #f5f5f7;
+      --bg-secondary: #ffffff;
+      --bg-tertiary: #fafafa;
+      --text-primary: #1d1d1f;
+      --text-secondary: #86868b;
+      --text-tertiary: #6e6e73;
+      --accent: #007aff;
+      --accent-hover: #0056b3;
+      --success: #34c759;
+      --error: #ff3b30;
+      --warning: #ff9500;
+      --border: #d2d2d7;
+      --border-light: #e8e8ed;
+      --shadow: rgba(0, 0, 0, 0.04);
+      --shadow-medium: rgba(0, 0, 0, 0.08);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    #root { min-height: 100vh; }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 4px; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @keyframes popIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+    .fade-in { animation: fadeIn 0.3s ease-out; }
+    .spin { animation: spin 1s linear infinite; }
+    .pop-in { animation: popIn 0.2s ease-out; }
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4); backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center; z-index: 1000;
+    }
+    .modal-content {
+      background: var(--bg-secondary); border-radius: var(--radius-lg);
+      padding: 32px; max-width: 500px; width: 90%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    }
+    /* Tooltip flotante para respuestas */
+    .answer-tooltip {
+      position: fixed;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      max-width: 500px;
+      max-height: 400px;
+      overflow-y: auto;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      z-index: 999;
+      animation: popIn 0.2s ease-out;
+    }
+    .answer-tooltip::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 20px;
+      width: 16px;
+      height: 16px;
+      background: var(--bg-secondary);
+      border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border);
+      transform: rotate(45deg);
+    }
+    .truncated-text {
+      cursor: pointer;
+      position: relative;
+    }
+    .truncated-text:hover {
+      color: var(--accent);
+    }
+    .expand-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--accent);
+      font-size: 12px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+
+    const Icons = {
+      Plus: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>,
+      Trash: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>,
+      Edit: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>,
+      Image: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>,
+      Download: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>,
+      Upload: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>,
+      Cloud: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>,
+      Play: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>,
+      Check: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>,
+      X: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
+      Clock: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+      FileText: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>,
+      Target: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+      ChevronRight: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="9 18 15 12 9 6"/></svg>,
+      RefreshCw: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>,
+      Settings: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>,
+      Alert: () => <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>,
+      Expand: () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>,
+      Eye: () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>,
+      Search: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>,
+      XCircle: () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>,
+    };
+
+    const CATEGORIES = ["General", "Footprinting", "Scanning", "Enumeration", "System Hacking", "Malware", "Sniffing", "Social Engineering", "DoS", "Session Hijacking", "Web Servers", "Web Applications", "SQL Injection", "Wireless", "Mobile", "IoT", "Cloud", "Cryptography", "Wireless Security", "Hacking Concepts", "Architecture", "Mobile Security"];
+
+    const Button = ({ children, variant = "primary", size = "md", icon, onClick, disabled, fullWidth, loading }) => {
+      const variants = {
+        primary: { background: 'var(--accent)', color: 'white' },
+        secondary: { background: 'var(--bg-secondary)', color: 'var(--text-primary)', border: '1px solid var(--border)' },
+        success: { background: 'var(--success)', color: 'white' },
+        danger: { background: 'var(--error)', color: 'white' },
+        warning: { background: 'var(--warning)', color: 'white' },
+        ghost: { background: 'transparent', color: 'var(--text-secondary)' },
+        github: { background: '#24292e', color: 'white' }
+      };
+      const sizes = { sm: { padding: '6px 12px', fontSize: '13px' }, md: { padding: '10px 18px', fontSize: '14px' }, lg: { padding: '14px 28px', fontSize: '16px' } };
+      return (
+        <button
+          style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontWeight: '500', borderRadius: 'var(--radius-md)', border: 'none', cursor: disabled || loading ? 'not-allowed' : 'pointer', transition: 'all 0.2s', opacity: disabled ? 0.5 : 1, width: fullWidth ? '100%' : 'auto', fontFamily: 'inherit', ...variants[variant], ...sizes[size] }}
+          onClick={onClick}
+          disabled={disabled || loading}
+        >
+          {loading ? <span className="spin" style={{ display: 'inline-flex' }}><Icons.RefreshCw /></span> : icon}
+          {children}
+        </button>
+      );
+    };
+
+    const Card = ({ children, style = {} }) => (
+      <div style={{ background: 'var(--bg-secondary)', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-light)', boxShadow: '0 1px 3px var(--shadow)', ...style }}>{children}</div>
+    );
+
+    const Input = ({ label, value, onChange, placeholder, multiline, rows = 3, type = "text" }) => (
+      <div style={{ marginBottom: '16px' }}>
+        {label && <label style={{ display: 'block', marginBottom: '6px', fontSize: '13px', fontWeight: '500', color: 'var(--text-secondary)' }}>{label}</label>}
+        {multiline ? (
+          <textarea value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} rows={rows} style={{ width: '100%', padding: '12px 14px', fontSize: '14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', resize: 'vertical', outline: 'none' }} />
+        ) : (
+          <input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} style={{ width: '100%', padding: '12px 14px', fontSize: '14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', outline: 'none' }} />
+        )}
+      </div>
+    );
+
+    const Select = ({ label, value, onChange, options }) => (
+      <div style={{ marginBottom: '16px' }}>
+        {label && <label style={{ display: 'block', marginBottom: '6px', fontSize: '13px', fontWeight: '500', color: 'var(--text-secondary)' }}>{label}</label>}
+        <select value={value} onChange={(e) => onChange(e.target.value)} style={{ width: '100%', padding: '12px 14px', fontSize: '14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', cursor: 'pointer', outline: 'none' }}>
+          {options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+        </select>
+      </div>
+    );
+
+    const Badge = ({ children, variant = "default" }) => {
+      const variants = { default: { background: 'var(--bg-tertiary)', color: 'var(--text-secondary)' }, primary: { background: 'rgba(0,122,255,0.1)', color: 'var(--accent)' }, success: { background: 'rgba(52,199,89,0.1)', color: 'var(--success)' }, warning: { background: 'rgba(255,149,0,0.1)', color: 'var(--warning)' }, error: { background: 'rgba(255,59,48,0.1)', color: 'var(--error)' } };
+      return <span style={{ display: 'inline-flex', padding: '4px 10px', fontSize: '12px', fontWeight: '500', borderRadius: '20px', ...variants[variant] }}>{children}</span>;
+    };
+
+    const ProgressBar = ({ value, max }) => (
+      <div style={{ width: '100%', height: '6px', background: 'var(--border-light)', borderRadius: '3px', overflow: 'hidden' }}>
+        <div style={{ width: `${(value/max)*100}%`, height: '100%', background: 'var(--accent)', borderRadius: '3px', transition: 'width 0.3s' }} />
+      </div>
+    );
+
+    const Modal = ({ isOpen, onClose, title, children, wide }) => {
+      if (!isOpen) return null;
+      return (
+        <div className="modal-overlay" onClick={onClose}>
+          <div className="modal-content fade-in" onClick={e => e.stopPropagation()} style={wide ? { maxWidth: '700px' } : {}}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '600' }}>{title}</h3>
+              <button onClick={onClose} style={{ width: '32px', height: '32px', border: 'none', borderRadius: '50%', background: 'var(--bg-tertiary)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }}><Icons.X /></button>
+            </div>
+            {children}
+          </div>
+        </div>
+      );
+    };
+
+    // Componente de Tooltip/Popover para respuestas largas
+    const AnswerPopover = ({ text, isOpen, onClose, position, letter, isCorrect, justification }) => {
+      if (!isOpen) return null;
+      
+      return (
+        <div 
+          className="answer-tooltip pop-in"
+          style={{
+            top: position.top,
+            left: position.left,
+            transform: 'translateX(-20px)'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', paddingBottom: '12px', borderBottom: '1px solid var(--border-light)' }}>
+            <div style={{
+              width: '28px', height: '28px', borderRadius: '50%',
+              background: isCorrect ? 'var(--success)' : 'var(--accent)',
+              color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: '600', fontSize: '13px'
+            }}>{letter}</div>
+            <span style={{ fontWeight: '600', color: 'var(--text-primary)' }}>Opción {letter}</span>
+            {isCorrect && <Badge variant="success">✓ Correcta</Badge>}
+            <button onClick={onClose} style={{ marginLeft: 'auto', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: '4px' }}><Icons.X /></button>
+          </div>
+          <p style={{ fontSize: '15px', lineHeight: '1.6', color: 'var(--text-primary)' }}>{text}</p>
+          {justification && (
+            <div style={{ marginTop: '16px', padding: '12px', background: 'rgba(0,122,255,0.05)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--accent)' }}>
+              <p style={{ fontSize: '12px', fontWeight: '600', color: 'var(--accent)', marginBottom: '4px' }}>💡 Justificación</p>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>{justification}</p>
+            </div>
+          )}
+        </div>
+      );
+    };
+
+    // Componente de texto truncado con expand
+    const TruncatedAnswer = ({ text, maxLength = 80, letter, isCorrect, justification, showFull, onToggle }) => {
+      const needsTruncate = text.length > maxLength;
+      const displayText = needsTruncate && !showFull ? text.substring(0, maxLength) + '...' : text;
+      const ref = useRef(null);
+      const [popoverPos, setPopoverPos] = useState({ top: 0, left: 0 });
+      const [showPopover, setShowPopover] = useState(false);
+
+      const handleClick = (e) => {
+        if (needsTruncate) {
+          const rect = ref.current.getBoundingClientRect();
+          setPopoverPos({
+            top: rect.bottom + 10 + window.scrollY,
+            left: Math.min(rect.left, window.innerWidth - 520)
+          });
+          setShowPopover(true);
+        }
+      };
+
+      return (
+        <>
+          <span ref={ref} style={{ display: 'inline' }}>
+            {displayText}
+            {needsTruncate && (
+              <span 
+                onClick={handleClick}
+                className="expand-indicator"
+                title="Click para ver completo"
+              >
+                <Icons.Eye /> Ver más
+              </span>
+            )}
+          </span>
+          {showPopover && (
+            <>
+              <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 998 }} onClick={() => setShowPopover(false)} />
+              <AnswerPopover 
+                text={text} 
+                isOpen={true} 
+                onClose={() => setShowPopover(false)}
+                position={popoverPos}
+                letter={letter}
+                isCorrect={isCorrect}
+                justification={justification}
+              />
+            </>
+          )}
+        </>
+      );
+    };
+
+    const Header = ({ activeTab, setActiveTab, onOpenSettings }) => (
+      <header style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border-light)', padding: '0 32px', position: 'sticky', top: 0, zIndex: 100 }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ width: '36px', height: '36px', background: 'linear-gradient(135deg, var(--accent) 0%, #5856d6 100%)', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '18px' }}>🛡️</div>
+            <span style={{ fontSize: '18px', fontWeight: '600' }}>CEH Quiz Master</span>
+          </div>
+          <nav style={{ display: 'flex', gap: '4px', background: 'var(--bg-tertiary)', padding: '4px', borderRadius: 'var(--radius-md)' }}>
+            {[{ id: 'editor', label: 'Editor', icon: <Icons.FileText /> }, { id: 'preview', label: 'Preview', icon: <Icons.Eye /> }, { id: 'quiz', label: 'Quiz', icon: <Icons.Target /> }].map(tab => (
+              <button key={tab.id} onClick={() => setActiveTab(tab.id)} style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 20px', fontSize: '14px', fontWeight: '500', border: 'none', borderRadius: 'var(--radius-sm)', cursor: 'pointer', transition: 'all 0.2s', background: activeTab === tab.id ? 'var(--bg-secondary)' : 'transparent', color: activeTab === tab.id ? 'var(--text-primary)' : 'var(--text-secondary)', boxShadow: activeTab === tab.id ? '0 1px 3px var(--shadow)' : 'none', fontFamily: 'inherit' }}>{tab.icon}{tab.label}</button>
+            ))}
+          </nav>
+          <button onClick={onOpenSettings} style={{ width: '40px', height: '40px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-secondary)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-secondary)' }} title="Configuración"><Icons.Settings /></button>
+        </div>
+      </header>
+    );
+
+    const AnswerItem = ({ answer, index, onChange, onRemove }) => {
+      const letter = String.fromCharCode(65 + index);
+      return (
+        <div className="fade-in" style={{ display: 'flex', gap: '12px', padding: '16px', background: answer.isCorrect ? 'rgba(52,199,89,0.05)' : 'var(--bg-tertiary)', borderRadius: 'var(--radius-md)', border: answer.isCorrect ? '1px solid rgba(52,199,89,0.3)' : '1px solid var(--border-light)', marginBottom: '12px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: answer.isCorrect ? 'var(--success)' : 'var(--border)', color: answer.isCorrect ? 'white' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '600', fontSize: '14px' }}>{letter}</div>
+            <button onClick={() => onChange({ ...answer, isCorrect: !answer.isCorrect })} style={{ width: '24px', height: '24px', borderRadius: '6px', border: answer.isCorrect ? 'none' : '2px solid var(--border)', background: answer.isCorrect ? 'var(--success)' : 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }} title="Marcar como correcta">{answer.isCorrect && <Icons.Check />}</button>
+          </div>
+          <div style={{ flex: 1 }}>
+            <textarea value={answer.text} onChange={(e) => onChange({ ...answer, text: e.target.value })} placeholder={`Respuesta ${letter}...`} rows={2} style={{ width: '100%', padding: '10px 12px', fontSize: '14px', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-sm)', background: 'white', marginBottom: '8px', fontFamily: 'inherit', outline: 'none', resize: 'vertical' }} />
+            <input value={answer.justification || ''} onChange={(e) => onChange({ ...answer, justification: e.target.value })} placeholder="Justificación (opcional)..." style={{ width: '100%', padding: '8px 12px', fontSize: '13px', border: '1px solid var(--border-light)', borderRadius: 'var(--radius-sm)', background: 'white', color: 'var(--text-secondary)', fontFamily: 'inherit', outline: 'none' }} />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <button onClick={() => { const input = document.createElement('input'); input.type = 'file'; input.accept = 'image/*'; input.onchange = (e) => { const file = e.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (ev) => onChange({ ...answer, image: ev.target.result }); reader.readAsDataURL(file); } }; input.click(); }} style={{ width: '32px', height: '32px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: answer.image ? 'var(--accent)' : 'white', color: answer.image ? 'white' : 'var(--text-secondary)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Agregar imagen"><Icons.Image /></button>
+            <button onClick={onRemove} style={{ width: '32px', height: '32px', border: 'none', borderRadius: 'var(--radius-sm)', background: 'rgba(255,59,48,0.1)', color: 'var(--error)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }} title="Eliminar"><Icons.Trash /></button>
+          </div>
+        </div>
+      );
+    };
+
+    const QuestionCard = ({ question, index, onEdit, onDelete, realIndex }) => (
+      <div style={{ display: 'flex', alignItems: 'center', padding: '16px 20px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)', marginBottom: '8px', transition: 'all 0.2s' }}
+        onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--accent)'; e.currentTarget.style.boxShadow = '0 2px 8px var(--shadow)'; }}
+        onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'var(--border-light)'; e.currentTarget.style.boxShadow = 'none'; }}
+      >
+        <div style={{ width: '36px', height: '36px', borderRadius: '10px', background: 'var(--bg-tertiary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '600', color: 'var(--text-secondary)', marginRight: '16px', fontSize: '14px' }}>{index + 1}</div>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ fontSize: '14px', fontWeight: '500', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: '4px' }}>{question.question}</div>
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Badge variant="primary">{question.category}</Badge>
+            {question.multipleCorrect && <Badge variant="warning">Multi</Badge>}
+            <span style={{ fontSize: '12px', color: 'var(--text-tertiary)' }}>{question.answers.length} respuestas</span>
+          </div>
+        </div>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <button onClick={() => onEdit(index)} style={{ width: '36px', height: '36px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'white', color: 'var(--text-secondary)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }} title="Editar"><Icons.Edit /></button>
+          <button onClick={() => onDelete(index)} style={{ width: '36px', height: '36px', border: 'none', borderRadius: 'var(--radius-sm)', background: 'rgba(255,59,48,0.1)', color: 'var(--error)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'all 0.2s' }} title="Eliminar"><Icons.Trash /></button>
+        </div>
+      </div>
+    );
+
+    const EditorTab = ({ questions, setQuestions, githubUrl, onSync, syncing }) => {
+      const [questionText, setQuestionText] = useState('');
+      const [category, setCategory] = useState('General');
+      const [questionImage, setQuestionImage] = useState(null);
+      const [answers, setAnswers] = useState([{ text: '', isCorrect: false, justification: '', image: null }, { text: '', isCorrect: false, justification: '', image: null }, { text: '', isCorrect: false, justification: '', image: null }, { text: '', isCorrect: false, justification: '', image: null }]);
+      const [editingIndex, setEditingIndex] = useState(null);
+      const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+      const [searchTerm, setSearchTerm] = useState('');
+      const [filterCategory, setFilterCategory] = useState('Todas');
+
+      // Filtrar preguntas según búsqueda y categoría
+      const filteredQuestions = questions.filter(q => {
+        const matchesSearch = searchTerm === '' || 
+          q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          q.answers.some(a => a.text.toLowerCase().includes(searchTerm.toLowerCase()));
+        const matchesCategory = filterCategory === 'Todas' || q.category === filterCategory;
+        return matchesSearch && matchesCategory;
+      });
+
+      // Encontrar índice real de la pregunta en el array original
+      const getRealIndex = (filteredIndex) => {
+        const filteredQuestion = filteredQuestions[filteredIndex];
+        return questions.findIndex(q => q.id === filteredQuestion.id || q.question === filteredQuestion.question);
+      };
+
+      // Atajo de teclado Ctrl+K para búsqueda rápida
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            const searchInput = document.querySelector('input[placeholder*="Buscar"]');
+            if (searchInput) searchInput.focus();
+          }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, []);
+
+      const clearForm = () => { setQuestionText(''); setCategory('General'); setQuestionImage(null); setAnswers([{ text: '', isCorrect: false, justification: '', image: null }, { text: '', isCorrect: false, justification: '', image: null }, { text: '', isCorrect: false, justification: '', image: null }, { text: '', isCorrect: false, justification: '', image: null }]); setEditingIndex(null); };
+
+      const saveQuestion = () => {
+        if (!questionText.trim()) { alert('El enunciado es obligatorio'); return; }
+        const validAnswers = answers.filter(a => a.text.trim());
+        if (validAnswers.length < 2) { alert('Debe haber al menos 2 respuestas'); return; }
+        if (!validAnswers.some(a => a.isCorrect)) { alert('Debe marcar al menos una respuesta correcta'); return; }
+        const newQuestion = { id: Date.now(), question: questionText, category, image: questionImage, answers: validAnswers, multipleCorrect: validAnswers.filter(a => a.isCorrect).length > 1, createdAt: new Date().toISOString() };
+        if (editingIndex !== null) { const updated = [...questions]; updated[editingIndex] = newQuestion; setQuestions(updated); } else { setQuestions([...questions, newQuestion]); }
+        clearForm();
+      };
+
+      const editQuestion = (filteredIndex) => {
+        const realIndex = getRealIndex(filteredIndex);
+        const q = questions[realIndex];
+        setQuestionText(q.question); setCategory(q.category || 'General'); setQuestionImage(q.image);
+        setAnswers([...q.answers, ...Array(4 - q.answers.length).fill({ text: '', isCorrect: false, justification: '', image: null })].slice(0, Math.max(4, q.answers.length)));
+        setEditingIndex(realIndex);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      const deleteQuestion = (filteredIndex) => { 
+        const realIndex = getRealIndex(filteredIndex);
+        if (confirm('¿Eliminar esta pregunta?')) setQuestions(questions.filter((_, i) => i !== realIndex)); 
+      };
+      const deleteAllQuestions = () => { setQuestions([]); setShowDeleteConfirm(false); };
+
+      const exportJSON = () => {
+        if (!questions.length) { alert('No hay preguntas para exportar'); return; }
+        const blob = new Blob([JSON.stringify(questions, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url; a.download = `ceh_questions_${new Date().toISOString().split('T')[0]}.json`; a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      const importJSON = () => {
+        const input = document.createElement('input'); input.type = 'file'; input.accept = '.json';
+        input.onchange = (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (ev) => { try { const imported = JSON.parse(ev.target.result); setQuestions([...questions, ...imported]); alert(`${imported.length} preguntas importadas`); } catch(err) { alert('Error al importar: ' + err.message); } };
+            reader.readAsText(file);
+          }
+        };
+        input.click();
+      };
+
+      return (
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 420px', gap: '32px', maxWidth: '1400px', margin: '0 auto', padding: '32px' }}>
+          <div>
+            <Card style={{ padding: '28px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+                <h2 style={{ fontSize: '20px', fontWeight: '600' }}>{editingIndex !== null ? 'Editar Pregunta' : 'Nueva Pregunta'}</h2>
+                <Badge variant="primary">{questions.length} preguntas</Badge>
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 200px', gap: '16px', marginBottom: '16px' }}>
+                <Input label="Enunciado de la Pregunta" value={questionText} onChange={setQuestionText} placeholder="Escribe el enunciado aquí..." multiline rows={4} />
+                <div>
+                  <Select label="Categoría" value={category} onChange={setCategory} options={CATEGORIES} />
+                  <Button variant="secondary" size="sm" fullWidth icon={<Icons.Image />} onClick={() => { const input = document.createElement('input'); input.type = 'file'; input.accept = 'image/*'; input.onchange = (e) => { const file = e.target.files[0]; if (file) { const reader = new FileReader(); reader.onload = (ev) => setQuestionImage(ev.target.result); reader.readAsDataURL(file); } }; input.click(); }}>{questionImage ? 'Cambiar imagen' : 'Agregar imagen'}</Button>
+                  {questionImage && <div style={{ marginTop: '8px', position: 'relative' }}><img src={questionImage} alt="Preview" style={{ width: '100%', borderRadius: 'var(--radius-sm)' }} /><button onClick={() => setQuestionImage(null)} style={{ position: 'absolute', top: '4px', right: '4px', width: '24px', height: '24px', borderRadius: '50%', border: 'none', background: 'var(--error)', color: 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Icons.X /></button></div>}
+                </div>
+              </div>
+              <div style={{ marginBottom: '24px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                  <h3 style={{ fontSize: '16px', fontWeight: '600' }}>Respuestas</h3>
+                  <Button variant="ghost" size="sm" icon={<Icons.Plus />} onClick={() => setAnswers([...answers, { text: '', isCorrect: false, justification: '', image: null }])}>Agregar</Button>
+                </div>
+                {answers.map((answer, index) => <AnswerItem key={index} answer={answer} index={index} onChange={(updated) => { const newAnswers = [...answers]; newAnswers[index] = updated; setAnswers(newAnswers); }} onRemove={() => { if (answers.length > 2) setAnswers(answers.filter((_, i) => i !== index)); }} />)}
+              </div>
+              <div style={{ display: 'flex', gap: '12px' }}>
+                <Button variant="success" icon={<Icons.Check />} onClick={saveQuestion}>{editingIndex !== null ? 'Actualizar' : 'Guardar'} Pregunta</Button>
+                <Button variant="secondary" icon={<Icons.RefreshCw />} onClick={clearForm}>Limpiar</Button>
+              </div>
+            </Card>
+          </div>
+          <div>
+            <Card style={{ padding: '20px' }}>
+              <h3 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '16px' }}>Banco de Preguntas</h3>
+              
+              {/* Barra de búsqueda */}
+              <div style={{ marginBottom: '16px' }}>
+                <div style={{ position: 'relative', marginBottom: '10px' }}>
+                  <div style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }}>
+                    <Icons.Search />
+                  </div>
+                  <input
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Buscar pregunta... (Ctrl+K)"
+                    style={{
+                      width: '100%',
+                      padding: '12px 12px 12px 40px',
+                      fontSize: '14px',
+                      border: '1px solid var(--border)',
+                      borderRadius: 'var(--radius-md)',
+                      background: 'var(--bg-tertiary)',
+                      fontFamily: 'inherit',
+                      outline: 'none',
+                      transition: 'border-color 0.2s, box-shadow 0.2s'
+                    }}
+                    onFocus={(e) => { e.target.style.borderColor = 'var(--accent)'; e.target.style.boxShadow = '0 0 0 3px rgba(0,122,255,0.1)'; }}
+                    onBlur={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.boxShadow = 'none'; }}
+                    onKeyDown={(e) => { if (e.key === 'Escape') { setSearchTerm(''); e.target.blur(); } }}
+                  />
+                  {searchTerm && (
+                    <button
+                      onClick={() => setSearchTerm('')}
+                      style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-secondary)', padding: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                      title="Limpiar búsqueda"
+                    >
+                      <Icons.XCircle />
+                    </button>
+                  )}
+                </div>
+                <select
+                  value={filterCategory}
+                  onChange={(e) => setFilterCategory(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '10px 12px',
+                    fontSize: '13px',
+                    border: '1px solid var(--border)',
+                    borderRadius: 'var(--radius-sm)',
+                    background: 'var(--bg-tertiary)',
+                    fontFamily: 'inherit',
+                    cursor: 'pointer',
+                    outline: 'none',
+                    color: filterCategory === 'Todas' ? 'var(--text-secondary)' : 'var(--text-primary)'
+                  }}
+                >
+                  <option value="Todas">📁 Todas las categorías</option>
+                  {CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                </select>
+              </div>
+
+              {/* Contador de resultados */}
+              {(searchTerm || filterCategory !== 'Todas') && (
+                <div style={{ padding: '8px 12px', background: 'rgba(0,122,255,0.05)', borderRadius: 'var(--radius-sm)', marginBottom: '12px', fontSize: '13px', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <span>🔍 {filteredQuestions.length} de {questions.length} preguntas</span>
+                  <button onClick={() => { setSearchTerm(''); setFilterCategory('Todas'); }} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--accent)', fontSize: '12px', textDecoration: 'underline' }}>Limpiar filtros</button>
+                </div>
+              )}
+
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
+                <Button variant="secondary" size="sm" icon={<Icons.Upload />} onClick={importJSON}>Importar</Button>
+                <Button variant="primary" size="sm" icon={<Icons.Download />} onClick={exportJSON}>Exportar</Button>
+                <Button variant="github" size="sm" icon={<Icons.Cloud />} onClick={onSync} loading={syncing} disabled={!githubUrl} title={!githubUrl ? 'Configura GitHub primero' : 'Sincronizar desde GitHub'}>Sincronizar</Button>
+                <Button variant="danger" size="sm" icon={<Icons.Trash />} onClick={() => setShowDeleteConfirm(true)} disabled={questions.length === 0}>Eliminar Todo</Button>
+              </div>
+              {!githubUrl && <div style={{ padding: '12px 16px', background: 'rgba(255,149,0,0.1)', borderRadius: 'var(--radius-sm)', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '13px', color: 'var(--warning)' }}><Icons.Alert />Configura la URL de GitHub en ⚙️</div>}
+              <div style={{ maxHeight: 'calc(100vh - 520px)', overflowY: 'auto' }}>
+                {filteredQuestions.length === 0 ? (
+                  <div style={{ textAlign: 'center', padding: '40px 20px', color: 'var(--text-secondary)' }}>
+                    <div style={{ fontSize: '48px', marginBottom: '12px' }}>{questions.length === 0 ? '📝' : '🔍'}</div>
+                    <p>{questions.length === 0 ? 'No hay preguntas aún' : 'No se encontraron resultados'}</p>
+                    <p style={{ fontSize: '13px' }}>{questions.length === 0 ? 'Crea tu primera pregunta o sincroniza desde GitHub' : 'Intenta con otros términos de búsqueda'}</p>
+                  </div>
+                ) : filteredQuestions.map((q, i) => <QuestionCard key={q.id || i} question={q} index={i} onEdit={editQuestion} onDelete={deleteQuestion} />)}
+              </div>
+            </Card>
+          </div>
+          <Modal isOpen={showDeleteConfirm} onClose={() => setShowDeleteConfirm(false)} title="Eliminar todas las preguntas">
+            <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+              <div style={{ fontSize: '48px', marginBottom: '16px' }}>⚠️</div>
+              <p style={{ marginBottom: '8px' }}>¿Estás seguro de eliminar <strong>{questions.length} preguntas</strong>?</p>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '14px' }}>Esta acción no se puede deshacer.</p>
+            </div>
+            <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+              <Button variant="secondary" onClick={() => setShowDeleteConfirm(false)}>Cancelar</Button>
+              <Button variant="danger" icon={<Icons.Trash />} onClick={deleteAllQuestions}>Eliminar Todo</Button>
+            </div>
+          </Modal>
+        </div>
+      );
+    };
+
+    // ==================== PREVIEW TAB ====================
+    const PreviewTab = ({ questions, setQuestions }) => {
+      const [currentIndex, setCurrentIndex] = useState(0);
+      const [searchTerm, setSearchTerm] = useState('');
+      const [filterCategory, setFilterCategory] = useState('Todas');
+      const [showEditModal, setShowEditModal] = useState(false);
+      const [editingQuestion, setEditingQuestion] = useState(null);
+      const [editAnswers, setEditAnswers] = useState([]);
+
+      // Filtrar preguntas
+      const filteredQuestions = questions.filter(q => {
+        const matchesSearch = searchTerm === '' || 
+          q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          q.answers.some(a => a.text.toLowerCase().includes(searchTerm.toLowerCase()));
+        const matchesCategory = filterCategory === 'Todas' || q.category === filterCategory;
+        return matchesSearch && matchesCategory;
+      });
+
+      const currentQuestion = filteredQuestions[currentIndex];
+
+      // Navegación con teclado
+      useEffect(() => {
+        const handleKeyDown = (e) => {
+          if (showEditModal) return;
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            setCurrentIndex(i => Math.max(0, i - 1));
+          } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            setCurrentIndex(i => Math.min(filteredQuestions.length - 1, i + 1));
+          } else if (e.key === 'e' || e.key === 'E') {
+            if (currentQuestion) openEditModal(currentQuestion);
+          }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [filteredQuestions.length, currentQuestion, showEditModal]);
+
+      // Reset index cuando cambian los filtros
+      useEffect(() => {
+        setCurrentIndex(0);
+      }, [searchTerm, filterCategory]);
+
+      const openEditModal = (question) => {
+        setEditingQuestion({ ...question });
+        setEditAnswers([...question.answers]);
+        setShowEditModal(true);
+      };
+
+      const saveEdit = () => {
+        if (!editingQuestion) return;
+        const realIndex = questions.findIndex(q => q.id === editingQuestion.id || q.question === editingQuestion.question);
+        if (realIndex >= 0) {
+          const updated = [...questions];
+          updated[realIndex] = {
+            ...editingQuestion,
+            answers: editAnswers.filter(a => a.text.trim()),
+            multipleCorrect: editAnswers.filter(a => a.isCorrect && a.text.trim()).length > 1
+          };
+          setQuestions(updated);
+        }
+        setShowEditModal(false);
+        setEditingQuestion(null);
+      };
+
+      const goToQuestion = (index) => {
+        setCurrentIndex(Math.max(0, Math.min(filteredQuestions.length - 1, index)));
+      };
+
+      if (questions.length === 0) {
+        return (
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 200px)', padding: '32px' }}>
+            <Card style={{ padding: '48px', textAlign: 'center', maxWidth: '480px' }}>
+              <div style={{ fontSize: '64px', marginBottom: '16px' }}>📭</div>
+              <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '8px' }}>Sin preguntas</h2>
+              <p style={{ color: 'var(--text-secondary)' }}>Agrega preguntas en el Editor o sincroniza desde GitHub</p>
+            </Card>
+          </div>
+        );
+      }
+
+      return (
+        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '32px' }}>
+          {/* Header con búsqueda y navegación */}
+          <Card style={{ padding: '20px', marginBottom: '24px' }}>
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
+              {/* Búsqueda */}
+              <div style={{ flex: '1', minWidth: '200px', position: 'relative' }}>
+                <div style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }}>
+                  <Icons.Search />
+                </div>
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  placeholder="Buscar pregunta..."
+                  style={{ width: '100%', padding: '10px 12px 10px 40px', fontSize: '14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', outline: 'none' }}
+                />
+              </div>
+
+              {/* Filtro categoría */}
+              <select
+                value={filterCategory}
+                onChange={(e) => setFilterCategory(e.target.value)}
+                style={{ padding: '10px 12px', fontSize: '14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', cursor: 'pointer', outline: 'none', minWidth: '150px' }}
+              >
+                <option value="Todas">Todas</option>
+                {CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
+              </select>
+
+              {/* Navegación rápida */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Ir a:</span>
+                <input
+                  type="number"
+                  min="1"
+                  max={filteredQuestions.length}
+                  value={currentIndex + 1}
+                  onChange={(e) => goToQuestion(parseInt(e.target.value) - 1 || 0)}
+                  style={{ width: '60px', padding: '8px', fontSize: '14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', textAlign: 'center', fontFamily: 'inherit', outline: 'none' }}
+                />
+                <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>/ {filteredQuestions.length}</span>
+              </div>
+            </div>
+
+            {/* Indicador de filtros */}
+            {(searchTerm || filterCategory !== 'Todas') && (
+              <div style={{ marginTop: '12px', padding: '8px 12px', background: 'rgba(0,122,255,0.05)', borderRadius: 'var(--radius-sm)', fontSize: '13px', color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                <span>🔍 Mostrando {filteredQuestions.length} de {questions.length} preguntas</span>
+                <button onClick={() => { setSearchTerm(''); setFilterCategory('Todas'); }} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--accent)', fontSize: '12px', textDecoration: 'underline' }}>Limpiar</button>
+              </div>
+            )}
+
+            {/* Atajos de teclado */}
+            <div style={{ marginTop: '12px', fontSize: '11px', color: 'var(--text-tertiary)', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              <span>⬅️➡️ Navegar</span>
+              <span>E Editar</span>
+            </div>
+          </Card>
+
+          {/* Pregunta actual */}
+          {currentQuestion && (
+            <Card className="fade-in" key={currentIndex} style={{ padding: '32px', marginBottom: '24px' }}>
+              {/* Header de pregunta */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+                  <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'linear-gradient(135deg, var(--accent) 0%, #5856d6 100%)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', fontSize: '16px' }}>
+                    {currentIndex + 1}
+                  </div>
+                  <Badge variant="primary">{currentQuestion.category}</Badge>
+                  {currentQuestion.multipleCorrect && <Badge variant="warning">Múltiples respuestas</Badge>}
+                </div>
+                <Button variant="secondary" size="sm" icon={<Icons.Edit />} onClick={() => openEditModal(currentQuestion)}>
+                  Editar
+                </Button>
+              </div>
+
+              {/* Enunciado */}
+              <h2 style={{ fontSize: '18px', fontWeight: '500', lineHeight: '1.6', marginBottom: '24px', color: 'var(--text-primary)' }}>
+                {currentQuestion.question}
+              </h2>
+
+              {/* Imagen de pregunta */}
+              {currentQuestion.image && (
+                <img src={currentQuestion.image} alt="Pregunta" style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: 'var(--radius-md)', marginBottom: '24px', border: '1px solid var(--border-light)' }} />
+              )}
+
+              {/* Respuestas */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {currentQuestion.answers.map((answer, idx) => {
+                  const letter = String.fromCharCode(65 + idx);
+                  return (
+                    <div
+                      key={idx}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '16px',
+                        padding: '16px 20px',
+                        background: answer.isCorrect ? 'rgba(52,199,89,0.08)' : 'var(--bg-tertiary)',
+                        border: answer.isCorrect ? '2px solid var(--success)' : '1px solid var(--border-light)',
+                        borderRadius: 'var(--radius-md)',
+                        transition: 'all 0.2s'
+                      }}
+                    >
+                      <div style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        background: answer.isCorrect ? 'var(--success)' : 'var(--border)',
+                        color: answer.isCorrect ? 'white' : 'var(--text-secondary)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontWeight: '600',
+                        fontSize: '14px',
+                        flexShrink: 0
+                      }}>
+                        {answer.isCorrect ? <Icons.Check /> : letter}
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <p style={{ fontSize: '15px', lineHeight: '1.5', color: 'var(--text-primary)' }}>{answer.text}</p>
+                        {answer.justification && (
+                          <p style={{ marginTop: '8px', fontSize: '13px', color: 'var(--text-secondary)', fontStyle: 'italic', padding: '8px 12px', background: 'rgba(0,122,255,0.05)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--accent)' }}>
+                            💡 {answer.justification}
+                          </p>
+                        )}
+                        {answer.image && (
+                          <img src={answer.image} alt="Respuesta" style={{ maxWidth: '200px', marginTop: '8px', borderRadius: 'var(--radius-sm)' }} />
+                        )}
+                      </div>
+                      {answer.isCorrect && (
+                        <Badge variant="success">✓ Correcta</Badge>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </Card>
+          )}
+
+          {/* Navegación inferior */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Button
+              variant="secondary"
+              icon={<Icons.ChevronRight style={{ transform: 'rotate(180deg)' }} />}
+              onClick={() => setCurrentIndex(i => Math.max(0, i - 1))}
+              disabled={currentIndex === 0}
+            >
+              Anterior
+            </Button>
+
+            {/* Puntos de navegación */}
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '60%' }}>
+              {filteredQuestions.length <= 20 ? (
+                filteredQuestions.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentIndex(idx)}
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      borderRadius: '8px',
+                      border: currentIndex === idx ? '2px solid var(--accent)' : '1px solid var(--border)',
+                      background: currentIndex === idx ? 'var(--accent)' : 'var(--bg-secondary)',
+                      color: currentIndex === idx ? 'white' : 'var(--text-secondary)',
+                      cursor: 'pointer',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      fontFamily: 'inherit'
+                    }}
+                  >
+                    {idx + 1}
+                  </button>
+                ))
+              ) : (
+                <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
+                  Pregunta {currentIndex + 1} de {filteredQuestions.length}
+                </span>
+              )}
+            </div>
+
+            <Button
+              variant="primary"
+              icon={<Icons.ChevronRight />}
+              onClick={() => setCurrentIndex(i => Math.min(filteredQuestions.length - 1, i + 1))}
+              disabled={currentIndex >= filteredQuestions.length - 1}
+            >
+              Siguiente
+            </Button>
+          </div>
+
+          {/* Modal de edición */}
+          <Modal isOpen={showEditModal} onClose={() => setShowEditModal(false)} title="✏️ Editar Pregunta">
+            {editingQuestion && (
+              <div>
+                <div style={{ marginBottom: '16px' }}>
+                  <label style={{ display: 'block', marginBottom: '6px', fontSize: '13px', fontWeight: '500', color: 'var(--text-secondary)' }}>Enunciado</label>
+                  <textarea
+                    value={editingQuestion.question}
+                    onChange={(e) => setEditingQuestion({ ...editingQuestion, question: e.target.value })}
+                    rows={3}
+                    style={{ width: '100%', padding: '12px', fontSize: '14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', resize: 'vertical', outline: 'none' }}
+                  />
+                </div>
+
+                <div style={{ marginBottom: '16px' }}>
+                  <label style={{ display: 'block', marginBottom: '6px', fontSize: '13px', fontWeight: '500', color: 'var(--text-secondary)' }}>Categoría</label>
+                  <select
+                    value={editingQuestion.category}
+                    onChange={(e) => setEditingQuestion({ ...editingQuestion, category: e.target.value })}
+                    style={{ width: '100%', padding: '10px', fontSize: '14px', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'var(--bg-tertiary)', fontFamily: 'inherit', cursor: 'pointer', outline: 'none' }}
+                  >
+                    {CATEGORIES.map(cat => <option key={cat} value={cat}>{cat}</option>)}
+                  </select>
+                </div>
+
+                <div style={{ marginBottom: '16px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+                    <label style={{ fontSize: '13px', fontWeight: '500', color: 'var(--text-secondary)' }}>Respuestas</label>
+                    <button
+                      onClick={() => setEditAnswers([...editAnswers, { text: '', isCorrect: false, justification: '' }])}
+                      style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--accent)', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}
+                    >
+                      <Icons.Plus /> Agregar
+                    </button>
+                  </div>
+                  <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
+                    {editAnswers.map((ans, idx) => (
+                      <div key={idx} style={{ display: 'flex', gap: '8px', marginBottom: '8px', padding: '10px', background: ans.isCorrect ? 'rgba(52,199,89,0.05)' : 'var(--bg-tertiary)', borderRadius: 'var(--radius-sm)', border: ans.isCorrect ? '1px solid rgba(52,199,89,0.3)' : '1px solid var(--border-light)' }}>
+                        <button
+                          onClick={() => {
+                            const updated = [...editAnswers];
+                            updated[idx] = { ...updated[idx], isCorrect: !updated[idx].isCorrect };
+                            setEditAnswers(updated);
+                          }}
+                          style={{ width: '28px', height: '28px', borderRadius: '6px', border: ans.isCorrect ? 'none' : '2px solid var(--border)', background: ans.isCorrect ? 'var(--success)' : 'white', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', flexShrink: 0 }}
+                          title="Marcar como correcta"
+                        >
+                          {ans.isCorrect && <Icons.Check />}
+                        </button>
+                        <div style={{ flex: 1 }}>
+                          <input
+                            value={ans.text}
+                            onChange={(e) => {
+                              const updated = [...editAnswers];
+                              updated[idx] = { ...updated[idx], text: e.target.value };
+                              setEditAnswers(updated);
+                            }}
+                            placeholder={`Respuesta ${String.fromCharCode(65 + idx)}...`}
+                            style={{ width: '100%', padding: '8px', fontSize: '13px', border: '1px solid var(--border-light)', borderRadius: '4px', fontFamily: 'inherit', outline: 'none', marginBottom: '4px' }}
+                          />
+                          <input
+                            value={ans.justification || ''}
+                            onChange={(e) => {
+                              const updated = [...editAnswers];
+                              updated[idx] = { ...updated[idx], justification: e.target.value };
+                              setEditAnswers(updated);
+                            }}
+                            placeholder="Justificación..."
+                            style={{ width: '100%', padding: '6px 8px', fontSize: '12px', border: '1px solid var(--border-light)', borderRadius: '4px', fontFamily: 'inherit', outline: 'none', color: 'var(--text-secondary)' }}
+                          />
+                        </div>
+                        <button
+                          onClick={() => {
+                            if (editAnswers.length > 2) {
+                              setEditAnswers(editAnswers.filter((_, i) => i !== idx));
+                            }
+                          }}
+                          style={{ width: '28px', height: '28px', border: 'none', borderRadius: '6px', background: 'rgba(255,59,48,0.1)', color: 'var(--error)', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}
+                          disabled={editAnswers.length <= 2}
+                        >
+                          <Icons.Trash />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <Button variant="secondary" fullWidth onClick={() => setShowEditModal(false)}>Cancelar</Button>
+                  <Button variant="success" fullWidth icon={<Icons.Check />} onClick={saveEdit}>Guardar</Button>
+                </div>
+              </div>
+            )}
+          </Modal>
+        </div>
+      );
+    };
+
+    const QuizSetup = ({ questions, onStart }) => {
+      const [numQuestions, setNumQuestions] = useState(10);
+      const [category, setCategory] = useState('Todas');
+      const availableQuestions = category === 'Todas' ? questions : questions.filter(q => q.category === category);
+
+      return (
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 'calc(100vh - 200px)', padding: '32px' }}>
+          <Card style={{ padding: '48px', textAlign: 'center', maxWidth: '480px', width: '100%' }}>
+            <div style={{ width: '80px', height: '80px', background: 'linear-gradient(135deg, var(--accent) 0%, #5856d6 100%)', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 24px', fontSize: '36px' }}>🎯</div>
+            <h1 style={{ fontSize: '28px', fontWeight: '600', marginBottom: '8px' }}>Iniciar Quiz</h1>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>Practica para tu examen CEH</p>
+            <div style={{ textAlign: 'left' }}>
+              <Input label="Número de preguntas" value={numQuestions} onChange={(v) => setNumQuestions(Math.max(1, Math.min(availableQuestions.length, parseInt(v) || 1)))} type="number" />
+              <Select label="Categoría" value={category} onChange={setCategory} options={['Todas', ...CATEGORIES]} />
+            </div>
+            <div style={{ padding: '16px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius-md)', marginBottom: '24px' }}>
+              <span style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>📚 {availableQuestions.length} preguntas disponibles</span>
+            </div>
+            <Button variant="primary" size="lg" fullWidth icon={<Icons.Play />} onClick={() => onStart(Math.min(numQuestions, availableQuestions.length), category)} disabled={availableQuestions.length === 0}>Comenzar Quiz</Button>
+          </Card>
+        </div>
+      );
+    };
+
+    const QuizActive = ({ questions, onFinish }) => {
+      const [currentIndex, setCurrentIndex] = useState(0);
+      const [selectedAnswers, setSelectedAnswers] = useState([]);
+      const [userAnswers, setUserAnswers] = useState([]);
+      const [showAnswer, setShowAnswer] = useState(false);
+      const [totalTime, setTotalTime] = useState(0);
+      const [questionTime, setQuestionTime] = useState(0);
+      const [questionTimes, setQuestionTimes] = useState([]);
+      const [shuffledQuestions, setShuffledQuestions] = useState([]);
+
+      // Algoritmo Fisher-Yates para mezcla aleatoria uniforme
+      const shuffleArray = (array) => {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      };
+
+      useEffect(() => {
+        // Mezclar preguntas y sus respuestas de forma aleatoria
+        const shuffledQs = shuffleArray(questions).map(q => ({
+          ...q,
+          answers: shuffleArray(q.answers) // Mezclar respuestas de cada pregunta
+        }));
+        setShuffledQuestions(shuffledQs);
+        setUserAnswers(new Array(questions.length).fill(null));
+      }, [questions]);
+
+      useEffect(() => {
+        const timer = setInterval(() => { setTotalTime(t => t + 1); setQuestionTime(t => t + 1); }, 1000);
+        return () => clearInterval(timer);
+      }, []);
+
+      const formatTime = (seconds) => {
+        const h = Math.floor(seconds / 3600), m = Math.floor((seconds % 3600) / 60), s = seconds % 60;
+        return h > 0 ? `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}` : `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+      };
+
+      const currentQuestion = shuffledQuestions[currentIndex];
+      const toggleAnswer = (answerText) => { if (showAnswer) return; setSelectedAnswers(prev => prev.includes(answerText) ? prev.filter(a => a !== answerText) : [...prev, answerText]); };
+
+      const handleShowAnswer = () => {
+        setShowAnswer(true);
+        const updated = [...userAnswers]; updated[currentIndex] = selectedAnswers; setUserAnswers(updated);
+        setQuestionTimes([...questionTimes, questionTime]);
+      };
+
+      const handleNext = () => {
+        if (!showAnswer) { const updated = [...userAnswers]; updated[currentIndex] = selectedAnswers; setUserAnswers(updated); setQuestionTimes([...questionTimes, questionTime]); }
+        if (currentIndex + 1 >= shuffledQuestions.length) { onFinish({ questions: shuffledQuestions, userAnswers: showAnswer ? userAnswers : [...userAnswers.slice(0, currentIndex), selectedAnswers], totalTime, questionTimes: showAnswer ? questionTimes : [...questionTimes, questionTime] }); }
+        else { setCurrentIndex(currentIndex + 1); setSelectedAnswers([]); setShowAnswer(false); setQuestionTime(0); }
+      };
+
+      if (!currentQuestion) return null;
+
+      return (
+        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '32px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'var(--bg-secondary)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-light)' }}><Icons.Clock /><span style={{ fontFamily: 'monospace', fontWeight: '600' }}>{formatTime(totalTime)}</span></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px', background: 'rgba(255,149,0,0.1)', borderRadius: 'var(--radius-md)', color: 'var(--warning)' }}><Icons.Clock /><span style={{ fontFamily: 'monospace', fontWeight: '600' }}>{formatTime(questionTime)}</span></div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span style={{ fontWeight: '600' }}>{currentIndex + 1} / {shuffledQuestions.length}</span>
+              <Button variant="danger" size="sm" onClick={() => onFinish({ questions: shuffledQuestions, userAnswers, totalTime, questionTimes })}>Terminar</Button>
+            </div>
+          </div>
+          <ProgressBar value={currentIndex + 1} max={shuffledQuestions.length} />
+          <Card className="fade-in" style={{ marginTop: '24px', padding: '32px' }}>
+            <div style={{ marginBottom: '20px' }}><Badge variant="primary">{currentQuestion.category}</Badge>{currentQuestion.multipleCorrect && <Badge variant="warning" style={{ marginLeft: '8px' }}>Múltiples respuestas</Badge>}</div>
+            <h2 style={{ fontSize: '18px', fontWeight: '500', lineHeight: '1.6', marginBottom: '20px' }}>{currentQuestion.question}</h2>
+            {currentQuestion.image && <img src={currentQuestion.image} alt="Question" style={{ maxWidth: '100%', maxHeight: '300px', borderRadius: 'var(--radius-md)', marginBottom: '24px' }} />}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {currentQuestion.answers.map((answer, index) => {
+                const letter = String.fromCharCode(65 + index);
+                const isSelected = selectedAnswers.includes(answer.text);
+                const isCorrect = answer.isCorrect;
+                let bgColor = isSelected ? 'rgba(0,122,255,0.08)' : 'var(--bg-tertiary)';
+                let borderColor = isSelected ? 'var(--accent)' : 'var(--border-light)';
+                if (showAnswer) { if (isCorrect) { bgColor = 'rgba(52,199,89,0.1)'; borderColor = 'var(--success)'; } else if (isSelected && !isCorrect) { bgColor = 'rgba(255,59,48,0.1)'; borderColor = 'var(--error)'; } }
+                return (
+                  <div key={index} onClick={() => toggleAnswer(answer.text)} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', padding: '16px 20px', background: bgColor, border: `2px solid ${borderColor}`, borderRadius: 'var(--radius-md)', cursor: showAnswer ? 'default' : 'pointer', transition: 'all 0.2s' }}>
+                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: showAnswer && isCorrect ? 'var(--success)' : (isSelected ? 'var(--accent)' : 'var(--border)'), color: (isSelected || (showAnswer && isCorrect)) ? 'white' : 'var(--text-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '600', fontSize: '14px', flexShrink: 0 }}>{showAnswer && isCorrect ? <Icons.Check /> : letter}</div>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontSize: '15px', lineHeight: '1.5', marginBottom: showAnswer && answer.justification ? '8px' : 0 }}>
+                        <TruncatedAnswer 
+                          text={answer.text} 
+                          maxLength={100} 
+                          letter={letter}
+                          isCorrect={isCorrect}
+                          justification={answer.justification}
+                        />
+                      </p>
+                      {showAnswer && answer.justification && <p style={{ fontSize: '13px', color: 'var(--text-secondary)', fontStyle: 'italic', padding: '8px 12px', background: 'rgba(0,122,255,0.05)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--accent)' }}>💡 {answer.justification}</p>}
+                      {answer.image && <img src={answer.image} alt="Answer" style={{ maxWidth: '200px', marginTop: '8px', borderRadius: 'var(--radius-sm)' }} />}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '32px' }}>
+              <Button variant="warning" onClick={handleShowAnswer} disabled={showAnswer || selectedAnswers.length === 0}>Ver Respuesta</Button>
+              <Button variant="primary" icon={<Icons.ChevronRight />} onClick={handleNext}>{currentIndex + 1 >= shuffledQuestions.length ? 'Ver Resultados' : 'Siguiente'}</Button>
+            </div>
+          </Card>
+        </div>
+      );
+    };
+
+    const QuizResults = ({ results, onRestart }) => {
+      const { questions, userAnswers, totalTime, questionTimes } = results;
+      let correct = 0;
+      questions.forEach((q, i) => { const correctAnswers = new Set(q.answers.filter(a => a.isCorrect).map(a => a.text)); const userAns = new Set(userAnswers[i] || []); if (correctAnswers.size === userAns.size && [...correctAnswers].every(a => userAns.has(a))) correct++; });
+      const percentage = Math.round((correct / questions.length) * 100);
+      const avgTime = questionTimes.length ? Math.round(questionTimes.reduce((a, b) => a + b, 0) / questionTimes.length) : 0;
+      const formatTime = (seconds) => { const h = Math.floor(seconds / 3600), m = Math.floor((seconds % 3600) / 60), s = seconds % 60; return h > 0 ? `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}` : `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`; };
+      const getGrade = () => { if (percentage >= 80) return { emoji: '🎉', text: '¡Excelente!', color: 'var(--success)' }; if (percentage >= 60) return { emoji: '👍', text: '¡Bien hecho!', color: 'var(--warning)' }; return { emoji: '📚', text: 'Sigue practicando', color: 'var(--error)' }; };
+      const grade = getGrade();
+
+      return (
+        <div style={{ maxWidth: '800px', margin: '0 auto', padding: '32px' }}>
+          <Card className="fade-in" style={{ padding: '48px', textAlign: 'center', marginBottom: '24px' }}>
+            <div style={{ fontSize: '64px', marginBottom: '16px' }}>{grade.emoji}</div>
+            <h1 style={{ fontSize: '32px', fontWeight: '600', marginBottom: '8px' }}>{grade.text}</h1>
+            <div style={{ fontSize: '56px', fontWeight: '700', color: grade.color, marginBottom: '24px' }}>{percentage}%</div>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '32px' }}>{correct} correctas de {questions.length} preguntas</p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '32px' }}>
+              {[{ icon: '⏱️', label: 'Tiempo Total', value: formatTime(totalTime) }, { icon: '📊', label: 'Promedio', value: formatTime(avgTime) }, { icon: '✅', label: 'Correctas', value: correct }, { icon: '❌', label: 'Incorrectas', value: questions.length - correct }].map((stat, i) => (
+                <div key={i} style={{ padding: '20px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius-md)' }}>
+                  <div style={{ fontSize: '24px', marginBottom: '8px' }}>{stat.icon}</div>
+                  <div style={{ fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '4px' }}>{stat.label}</div>
+                  <div style={{ fontSize: '20px', fontWeight: '600' }}>{stat.value}</div>
+                </div>
+              ))}
+            </div>
+            <Button variant="success" size="lg" icon={<Icons.RefreshCw />} onClick={onRestart}>Nuevo Quiz</Button>
+          </Card>
+          <Card style={{ padding: '24px' }}>
+            <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '20px' }}>Detalle de Respuestas</h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {questions.map((q, i) => {
+                const correctAnswers = new Set(q.answers.filter(a => a.isCorrect).map(a => a.text));
+                const userAns = new Set(userAnswers[i] || []);
+                const isCorrect = correctAnswers.size === userAns.size && [...correctAnswers].every(a => userAns.has(a));
+                return (
+                  <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 16px', background: 'var(--bg-tertiary)', borderRadius: 'var(--radius-sm)', borderLeft: `3px solid ${isCorrect ? 'var(--success)' : 'var(--error)'}` }}>
+                    <span style={{ color: isCorrect ? 'var(--success)' : 'var(--error)', fontSize: '18px' }}>{isCorrect ? '✓' : '✗'}</span>
+                    <span style={{ flex: 1, fontSize: '14px' }}>{q.question.substring(0, 60)}{q.question.length > 60 ? '...' : ''}</span>
+                    <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontFamily: 'monospace' }}>{formatTime(questionTimes[i] || 0)}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </Card>
+        </div>
+      );
+    };
+
+    const QuizTab = ({ questions }) => {
+      const [quizState, setQuizState] = useState('setup');
+      const [quizQuestions, setQuizQuestions] = useState([]);
+      const [results, setResults] = useState(null);
+
+      // Algoritmo Fisher-Yates para mezcla aleatoria
+      const shuffleArray = (array) => {
+        const shuffled = [...array];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
+      };
+
+      const startQuiz = (numQuestions, category) => {
+        const available = category === 'Todas' ? questions : questions.filter(q => q.category === category);
+        const selected = shuffleArray(available).slice(0, numQuestions);
+        setQuizQuestions(selected);
+        setQuizState('active');
+      };
+
+      const finishQuiz = (results) => { setResults(results); setQuizState('results'); };
+      const restart = () => { setQuizState('setup'); setResults(null); };
+
+      if (quizState === 'setup') return <QuizSetup questions={questions} onStart={startQuiz} />;
+      if (quizState === 'active') return <QuizActive questions={quizQuestions} onFinish={finishQuiz} />;
+      return <QuizResults results={results} onRestart={restart} />;
+    };
+
+    const SettingsModal = ({ isOpen, onClose, githubUrl, setGithubUrl }) => {
+      const [tempUrl, setTempUrl] = useState(githubUrl);
+      useEffect(() => { setTempUrl(githubUrl); }, [githubUrl, isOpen]);
+      const handleSave = () => { setGithubUrl(tempUrl); onClose(); };
+
+      return (
+        <Modal isOpen={isOpen} onClose={onClose} title="⚙️ Configuración">
+          <div style={{ marginBottom: '24px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+              <span style={{ fontWeight: '500' }}>📦 Sincronización con GitHub</span>
+            </div>
+            <Input label="URL del repositorio" value={tempUrl} onChange={setTempUrl} placeholder="https://github.com/usuario/repositorio" />
+            <p style={{ fontSize: '12px', color: 'var(--text-secondary)', marginTop: '-8px' }}>El archivo debe llamarse <code style={{ background: 'var(--bg-tertiary)', padding: '2px 6px', borderRadius: '4px' }}>sample_questions.json</code> en la raíz del repo.</p>
+          </div>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'flex-end' }}>
+            <Button variant="secondary" onClick={onClose}>Cancelar</Button>
+            <Button variant="primary" onClick={handleSave}>Guardar</Button>
+          </div>
+        </Modal>
+      );
+    };
+
+    const App = () => {
+      const [activeTab, setActiveTab] = useState('editor');
+      const [questions, setQuestions] = useState([]);
+      const [githubUrl, setGithubUrl] = useState('');
+      const [showSettings, setShowSettings] = useState(false);
+      const [syncing, setSyncing] = useState(false);
+
+      useEffect(() => {
+        const saved = localStorage.getItem('ceh_questions');
+        if (saved) try { setQuestions(JSON.parse(saved)); } catch {}
+        const savedUrl = localStorage.getItem('ceh_github_url');
+        if (savedUrl) setGithubUrl(savedUrl);
+      }, []);
+
+      useEffect(() => { localStorage.setItem('ceh_questions', JSON.stringify(questions)); }, [questions]);
+      useEffect(() => { localStorage.setItem('ceh_github_url', githubUrl); }, [githubUrl]);
+
+      const syncFromGitHub = async () => {
+        if (!githubUrl) { alert('Configura la URL de GitHub primero'); return; }
+        setSyncing(true);
+        try {
+          let rawUrl = githubUrl;
+          if (githubUrl.includes('github.com')) {
+            const match = githubUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
+            if (match) { const [, user, repo] = match; rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/main/sample_questions.json`; }
+          }
+          const response = await fetch(rawUrl);
+          if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
+          const remoteQuestions = await response.json();
+          const mergedQuestions = [...questions];
+          let added = 0, updated = 0;
+          remoteQuestions.forEach(remoteQ => {
+            const existingIndex = mergedQuestions.findIndex(q => q.id === remoteQ.id || q.question === remoteQ.question);
+            if (existingIndex >= 0) { mergedQuestions[existingIndex] = remoteQ; updated++; }
+            else { mergedQuestions.push(remoteQ); added++; }
+          });
+          setQuestions(mergedQuestions);
+          alert(`✅ Sincronización completada\n\n📥 ${added} preguntas nuevas\n🔄 ${updated} preguntas actualizadas`);
+        } catch (error) {
+          console.error('Sync error:', error);
+          alert(`❌ Error al sincronizar:\n${error.message}\n\nVerifica que:\n• La URL sea correcta\n• El repositorio sea público\n• El archivo sample_questions.json exista\n• El JSON sea válido`);
+        } finally { setSyncing(false); }
+      };
+
+      return (
+        <div style={{ minHeight: '100vh', background: 'var(--bg-primary)' }}>
+          <Header activeTab={activeTab} setActiveTab={setActiveTab} onOpenSettings={() => setShowSettings(true)} />
+          {activeTab === 'editor' && <EditorTab questions={questions} setQuestions={setQuestions} githubUrl={githubUrl} onSync={syncFromGitHub} syncing={syncing} />}
+          {activeTab === 'preview' && <PreviewTab questions={questions} setQuestions={setQuestions} />}
+          {activeTab === 'quiz' && <QuizTab questions={questions} />}
+          <SettingsModal isOpen={showSettings} onClose={() => setShowSettings(false)} githubUrl={githubUrl} setGithubUrl={setGithubUrl} />
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+  <script>if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');</script>
+</body>
+</html>
